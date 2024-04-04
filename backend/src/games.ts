@@ -1,4 +1,10 @@
-export const games = [
+export type Game = {
+  name: string;
+  readonly externalCode: number;
+  platforms: string[];
+};
+
+export const games: Game[] = [
   {
     name: "Grand Theft Auto V",
     externalCode: 1,
