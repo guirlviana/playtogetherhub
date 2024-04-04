@@ -1,4 +1,5 @@
-import { type Game, games } from "../games";
+import { Game } from "../types/games";
+import { games } from "../common/games";
 
 const searchForGame = (nameSearched: string): null | Game => {
   for (let i = 0; i < games.length; i++) {
@@ -13,4 +14,3 @@ const searchForGame = (nameSearched: string): null | Game => {
 
   return null;
 };
-
