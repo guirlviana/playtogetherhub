@@ -6,7 +6,7 @@ export type Game = {
 
 export const games: Game[] = [
   {
-    name: "Grand Theft Auto V",
+    name: "Grand Theft Auto V (GTA)",
     externalCode: 1,
     platforms: ["Xbox", "Playstation", "PC"],
   },
@@ -26,7 +26,7 @@ export const games: Game[] = [
     platforms: ["PC"],
   },
   {
-    name: "Counter Strike 2",
+    name: "Counter Strike 2 (CS)",
     externalCode: 5,
     platforms: ["PC"],
   },
