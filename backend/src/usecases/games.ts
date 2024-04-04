@@ -14,4 +14,3 @@ const searchForGame = (nameSearched: string): null | Game => {
   return null;
 };
 
-console.log(searchForGame("Mine"));
