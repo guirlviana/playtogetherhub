@@ -1,0 +1,24 @@
+model Gamer {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  games Games[]
+}
+
+model Games {
+  id    Int     @id @default(autoincrement())
+  title String
+  externalCode Int
+  platform Int
+  gamer Gamer @relation(fields: [gamerId], references: [id])
+  gamerId Int
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
