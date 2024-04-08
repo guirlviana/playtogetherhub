@@ -13,3 +13,18 @@ async function createGamer(email: string, name: string) {
 
   return newGamer;
 }
+
+type GamerUpdateFields = {
+  email?: string;
+  name?: string;
+};
+
+async function updateGamer(gamerId: number, data: GamerUpdateFields) {
+  const gamerUpdated = await prisma.gamer.update({
+    where: { id: gamerId },
+    data: data,
+  });
+  await prisma.$disconnect();
+
+  return gamerUpdated;
+}
