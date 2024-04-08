@@ -3,3 +3,11 @@ export type Game = {
   readonly externalCode: number;
   platforms: string[];
 };
+
+export type GameModel = {
+  id?: number;
+  title: string;
+  externalCode: number;
+  platform: number;
+  gamerId: number;
+};
