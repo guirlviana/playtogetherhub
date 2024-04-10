@@ -1,13 +1,13 @@
 model Gamer {
   id    Int     @id @default(autoincrement())
   email String  @unique
-  name  String?
+  name  String
+  password String
   games Games[]
 }
 
 model Games {
   id    Int     @id @default(autoincrement())
-  title String
   externalCode Int
   platform Int
   gamer Gamer @relation(fields: [gamerId], references: [id])
