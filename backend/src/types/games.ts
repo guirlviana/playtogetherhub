@@ -6,7 +6,6 @@ export type Game = {
 
 export type GameModel = {
   id?: number;
-  title: string;
   externalCode: number;
   platform: number;
   gamerId: number;

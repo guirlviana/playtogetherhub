@@ -5,7 +5,7 @@ async function createGamer(email: string, name: string, password: string) {
     data: {
       email: email,
       name: name,
-      password: password,
+      password: password
     },
   });
   await orm.$disconnect();
