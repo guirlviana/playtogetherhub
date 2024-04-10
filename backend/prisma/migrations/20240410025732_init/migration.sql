@@ -2,13 +2,13 @@
 CREATE TABLE "Gamer" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "email" TEXT NOT NULL,
-    "name" TEXT
+    "name" TEXT NOT NULL,
+    "password" TEXT NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Games" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "title" TEXT NOT NULL,
     "externalCode" INTEGER NOT NULL,
     "platform" INTEGER NOT NULL,
     "gamerId" INTEGER NOT NULL,
