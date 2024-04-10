@@ -1,10 +1,11 @@
 import { orm } from "../../prisma/prismaClient";
 
-async function createGamer(email: string, name: string) {
+async function createGamer(email: string, name: string, password: string) {
   const newGamer = await orm.gamer.create({
     data: {
       email: email,
       name: name,
+      password: password,
     },
   });
   await orm.$disconnect();
