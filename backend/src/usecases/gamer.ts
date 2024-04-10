@@ -1,15 +1,13 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { orm } from "../../prisma/prismaClient";
 
 async function createGamer(email: string, name: string) {
-  const newGamer = await prisma.gamer.create({
+  const newGamer = await orm.gamer.create({
     data: {
       email: email,
       name: name,
     },
   });
-  await prisma.$disconnect();
+  await orm.$disconnect();
 
   return newGamer;
 }
@@ -20,11 +18,11 @@ type GamerUpdateFields = {
 };
 
 async function updateGamer(gamerId: number, data: GamerUpdateFields) {
-  const gamerUpdated = await prisma.gamer.update({
+  const gamerUpdated = await orm.gamer.update({
     where: { id: gamerId },
     data: data,
   });
-  await prisma.$disconnect();
+  await orm.$disconnect();
 
   return gamerUpdated;
 }
