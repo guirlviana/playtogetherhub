@@ -34,3 +34,9 @@ export async function updateGamer(gamerId: number, data: GamerUpdateFields) {
 
   return gamerUpdated;
 }
+
+export async function deleteGamer(gamerId: number) {
+  await orm.gamer.delete({
+    where: { id: gamerId },
+  });
+}
