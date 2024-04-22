@@ -1,11 +1,7 @@
 import { orm } from "../../prisma/prismaClient";
 import bcrypt from "bcrypt";
 
-export async function createGamer(
-  gamerTag: string,
-  name: string,
-  password: string
-) {
+async function create(gamerTag: string, name: string, password: string) {
   const hash = await bcrypt.hash(password, 10);
 
   const newGamer = await orm.gamer.create({
@@ -25,7 +21,7 @@ type GamerUpdateFields = {
   name?: string;
 };
 
-export async function updateGamer(gamerId: number, data: GamerUpdateFields) {
+async function update(gamerId: number, data: GamerUpdateFields) {
   const gamerUpdated = await orm.gamer.update({
     where: { id: gamerId },
     data: data,
@@ -35,8 +31,14 @@ export async function updateGamer(gamerId: number, data: GamerUpdateFields) {
   return gamerUpdated;
 }
 
-export async function deleteGamer(gamerId: number) {
+async function remove(gamerId: number) {
   await orm.gamer.delete({
     where: { id: gamerId },
   });
 }
+
+export const GamerRepository = {
+  create,
+  update,
+  remove,
+};
