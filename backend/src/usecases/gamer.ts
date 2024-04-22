@@ -1,15 +1,18 @@
 import { orm } from "../../prisma/prismaClient";
+import bcrypt from "bcrypt";
 
 export async function createGamer(
   gamerTag: string,
   name: string,
   password: string
 ) {
+  const hash = await bcrypt.hash(password, 10);
+
   const newGamer = await orm.gamer.create({
     data: {
       gamerTag: gamerTag,
       name: name,
-      password: password,
+      password: hash,
     },
   });
   await orm.$disconnect();
