@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { createGamer, updateGamer } from "./usecases/gamer";
+import { createGamer, updateGamer, deleteGamer } from "./usecases/gamer";
 const app = express();
 const PORT = 3000;
 
@@ -25,6 +25,14 @@ app.put("/update-gamer/:id", async (req, res) => {
   await updateGamer(gamerId, data);
 
   res.status(200).json({ message: "updated successfully" });
+});
+
+app.delete("/delete-gamer/:id", async (req, res) => {
+  const gamerId = parseInt(req.params.id);
+
+  await deleteGamer(gamerId);
+
+  res.status(200).json({ message: "deleted successfully" });
 });
 
 app.listen(PORT, () => {
