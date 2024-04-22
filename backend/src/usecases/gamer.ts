@@ -1,11 +1,15 @@
 import { orm } from "../../prisma/prismaClient";
 
-async function createGamer(email: string, name: string, password: string) {
+export async function createGamer(
+  gamerTag: string,
+  name: string,
+  password: string
+) {
   const newGamer = await orm.gamer.create({
     data: {
-      email: email,
+      gamerTag: gamerTag,
       name: name,
-      password: password
+      password: password,
     },
   });
   await orm.$disconnect();
@@ -14,11 +18,11 @@ async function createGamer(email: string, name: string, password: string) {
 }
 
 type GamerUpdateFields = {
-  email?: string;
+  gamerTag?: string;
   name?: string;
 };
 
-async function updateGamer(gamerId: number, data: GamerUpdateFields) {
+export async function updateGamer(gamerId: number, data: GamerUpdateFields) {
   const gamerUpdated = await orm.gamer.update({
     where: { id: gamerId },
     data: data,
