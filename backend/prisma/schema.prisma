@@ -1,6 +1,6 @@
 model Gamer {
   id    Int     @id @default(autoincrement())
-  email String  @unique
+  gamerTag String  @unique
   name  String
   password String
   games Games[]
@@ -9,7 +9,6 @@ model Gamer {
 model Games {
   id    Int     @id @default(autoincrement())
   externalCode Int
-  platform Int
   gamer Gamer @relation(fields: [gamerId], references: [id])
   gamerId Int
 }
