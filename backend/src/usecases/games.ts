@@ -58,3 +58,25 @@ export async function getGames(gamerId: number): Promise<GameModel[]> {
 
   return games;
 }
+
+export async function matchGames(gamerId: number) {
+  const externalCodes = await orm.games.findMany({
+    where: { gamerId: gamerId },
+    select: { externalCode: true },
+  });
+
+  const games = await orm.games.groupBy({
+    by: ["gamerId"],
+    where: {
+      gamerId: { not: gamerId },
+      externalCode: { in: externalCodes.map((code) => code.externalCode) },
+    },
+    orderBy: {
+      _count: {
+        gamerId: "desc",
+      },
+    },
+  });
+
+  console.log(games);
+}
