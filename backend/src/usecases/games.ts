@@ -50,3 +50,11 @@ export async function createGameList(
 
   return gamesUpdated;
 }
+
+export async function getGames(gamerId: number): Promise<GameModel[]> {
+  const games = await orm.games.findMany({
+    where: { gamerId: gamerId },
+  });
+
+  return games;
+}
