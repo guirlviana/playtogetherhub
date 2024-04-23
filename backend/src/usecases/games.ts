@@ -16,7 +16,7 @@ const searchForGame = (nameSearched: string): null | Game => {
   return null;
 };
 
-async function createGameList(
+export async function createGameList(
   gamerId: number,
   games: GameModel[]
 ): Promise<GameModel[]> {
@@ -37,13 +37,16 @@ async function createGameList(
       gamerId: gamerId,
     },
   });
-  const newGames = games.filter((game) =>
-    [...gamesToCreate].includes(game.externalCode)
-  );
+
+  const newGames = games
+    .filter((game) => [...gamesToCreate].includes(game.externalCode))
+    .map((game) => ({ ...game, gamerId }));
+
   await orm.games.createMany({ data: newGames });
 
   const gamesUpdated = await orm.games.findMany({
     where: { gamerId: gamerId },
   });
+
   return gamesUpdated;
 }
