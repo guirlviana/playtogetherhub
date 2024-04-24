@@ -26,6 +26,8 @@ async function update(
   gamerId: number,
   data: GamerUpdateFields
 ): Promise<Gamer> {
+  const excludeFields = ["password"];
+  
   const gamerUpdated = await orm.gamer.update({
     where: { id: gamerId },
     data: data,
@@ -33,7 +35,13 @@ async function update(
 
   await orm.$disconnect();
 
-  return gamerUpdated;
+  const gamerCopy: Partial<Gamer> = { ...gamerUpdated };
+
+  excludeFields.forEach((field) => {
+    delete gamerCopy[field as keyof Gamer];
+  });
+
+  return gamerCopy as Gamer;
 }
 
 async function remove(gamerId: number): Promise<void> {

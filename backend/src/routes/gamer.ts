@@ -18,9 +18,9 @@ router.put("/update/:id", async (req, res) => {
   const data = req.body;
   const gamerId = parseInt(req.params.id);
 
-  await GamerRepository.update(gamerId, data);
+  const gamerUpdated = await GamerRepository.update(gamerId, data);
 
-  res.status(200).json({ message: "updated successfully" });
+  res.status(200).json({ message: "updated successfully", data: gamerUpdated });
 });
 
 router.delete("/delete/:id", async (req, res) => {
