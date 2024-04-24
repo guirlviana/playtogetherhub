@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { createGameList, getGames, matchGames } from "../usecases/games";
+import {
+  createGameList,
+  getAllGames,
+  getGames,
+  matchGames,
+} from "../usecases/games";
 
 export const router = Router();
 
@@ -25,4 +30,10 @@ router.get("/match/:gamerId", async (req, res) => {
   const match = await matchGames(parseInt(gamerId));
 
   res.status(200).json({ data: match });
+});
+
+router.get("/all", (req, res) => {
+  const games = getAllGames();
+
+  res.status(200).json({ data: games });
 });

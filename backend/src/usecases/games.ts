@@ -16,6 +16,10 @@ const searchForGame = (nameSearched: string): null | Game => {
   return null;
 };
 
+export function getAllGames(): Game[] {
+  return games;
+}
+
 export async function createGameList(
   gamerId: number,
   games: GameModel[]
