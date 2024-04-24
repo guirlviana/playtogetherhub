@@ -4,6 +4,7 @@ import {
   getAllGames,
   getGames,
   matchGames,
+  searchForGame,
 } from "../usecases/games";
 
 export const router = Router();
@@ -33,6 +34,14 @@ router.get("/match/:gamerId", async (req, res) => {
 });
 
 router.get("/all", (req, res) => {
+  const { search } = req.query;
+  
+  if (search) {
+    const games = searchForGame(search.toString());
+    console.log(games);
+    res.status(200).json({ data: games, nameSearched: search });
+  }
+  
   const games = getAllGames();
 
   res.status(200).json({ data: games });
