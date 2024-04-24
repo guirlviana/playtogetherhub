@@ -37,8 +37,20 @@ async function remove(gamerId: number): Promise<void> {
   });
 }
 
+async function get(
+  gamerId: number
+): Promise<{ gamerTag: string; name: string } | null> {
+  const gamer = await orm.gamer.findUnique({
+    where: { id: gamerId },
+    select: { gamerTag: true, name: true },
+  });
+
+  return gamer;
+}
+
 export const GamerRepository = {
   create,
   update,
   remove,
+  get,
 };
