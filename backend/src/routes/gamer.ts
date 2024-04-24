@@ -30,3 +30,11 @@ router.delete("/delete/:id", async (req, res) => {
 
   res.status(200).json({ message: "deleted successfully" });
 });
+
+router.get("/get/:id", async (req, res) => {
+  const gamerId = parseInt(req.params.id);
+
+  const gamer = await GamerRepository.get(gamerId);
+
+  res.status(200).json({ message: "get successfully", data: gamer });
+});
