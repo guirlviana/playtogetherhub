@@ -31,7 +31,7 @@ async function update(gamerId: number, data: GamerUpdateFields) {
   return gamerUpdated;
 }
 
-async function remove(gamerId: number) {
+async function remove(gamerId: number): Promise<void> {
   await orm.gamer.delete({
     where: { id: gamerId },
   });
