@@ -22,7 +22,7 @@ export function getAllGames(): Game[] {
   return games;
 }
 
-export async function createGameList(
+export async function createGamesList(
   gamerId: number,
   games: GameModel[]
 ): Promise<GameModel[]> {

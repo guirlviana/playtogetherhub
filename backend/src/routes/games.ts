@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-  createGameList,
+  createGamesList,
   getAllGames,
   getGames,
   matchGames,
@@ -12,7 +12,7 @@ export const router = Router();
 router.post("/create", async (req, res) => {
   const { gamerId, games } = req.body;
 
-  const gamesUpdated = await createGameList(gamerId, games);
+  const gamesUpdated = await createGamesList(gamerId, games);
 
   res.status(200).json({ message: "game list updated!", data: gamesUpdated });
 });
