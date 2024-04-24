@@ -5,8 +5,10 @@ import { orm } from "../../prisma/prismaClient";
 const searchForGame = (nameSearched: string): null | Game => {
   for (let i = 0; i < games.length; i++) {
     const game = games[i];
-    const nameFormatted = game.name.replace(/\s+/g, "");
-    const nameSearchedFormatted = nameSearched.replace(/\s+/g, "");
+    const nameFormatted = game.name.replace(/\s+/g, "").toLowerCase();
+    const nameSearchedFormatted = nameSearched
+      .replace(/\s+/g, "")
+      .toLowerCase();
 
     if (nameFormatted.includes(nameSearchedFormatted)) {
       return game;
