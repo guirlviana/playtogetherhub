@@ -2,7 +2,7 @@ import { Game, GameModel } from "../types/games";
 import { games } from "../common/games";
 import { orm } from "../../prisma/prismaClient";
 
-export function searchForGame(nameSearched: string): null | Game {
+function searchForGame(nameSearched: string): null | Game {
   for (let i = 0; i < games.length; i++) {
     const game = games[i];
     const nameFormatted = game.name.replace(/\s+/g, "").toLowerCase();
@@ -18,11 +18,11 @@ export function searchForGame(nameSearched: string): null | Game {
   return null;
 }
 
-export function getAllGames(): Game[] {
+function getAllGames(): Game[] {
   return games;
 }
 
-export async function createGamesList(
+async function createGamesList(
   gamerId: number,
   games: GameModel[]
 ): Promise<GameModel[]> {
@@ -57,7 +57,7 @@ export async function createGamesList(
   return gamesUpdated;
 }
 
-export async function getGames(gamerId: number): Promise<GameModel[]> {
+async function getGames(gamerId: number): Promise<GameModel[]> {
   const games = await orm.games.findMany({
     where: { gamerId: gamerId },
   });
@@ -70,7 +70,7 @@ type matchGamesReturn = {
   id: number;
 };
 
-export async function matchGames(gamerId: number): Promise<matchGamesReturn[]> {
+async function matchGames(gamerId: number): Promise<matchGamesReturn[]> {
   const externalCodes = await orm.games.findMany({
     where: { gamerId: gamerId },
     select: { externalCode: true },
@@ -104,3 +104,11 @@ export async function matchGames(gamerId: number): Promise<matchGamesReturn[]> {
 
   return gamerTagsOrdered;
 }
+
+export const GamesRepository = {
+  searchForGame,
+  matchGames,
+  getGames,
+  getAllGames,
+  createGamesList,
+};
