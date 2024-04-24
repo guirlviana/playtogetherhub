@@ -2,7 +2,7 @@ import { Game, GameModel } from "../types/games";
 import { games } from "../common/games";
 import { orm } from "../../prisma/prismaClient";
 
-const searchForGame = (nameSearched: string): null | Game => {
+export function searchForGame(nameSearched: string): null | Game {
   for (let i = 0; i < games.length; i++) {
     const game = games[i];
     const nameFormatted = game.name.replace(/\s+/g, "").toLowerCase();
@@ -16,7 +16,7 @@ const searchForGame = (nameSearched: string): null | Game => {
   }
 
   return null;
-};
+}
 
 export function getAllGames(): Game[] {
   return games;
