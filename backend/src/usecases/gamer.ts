@@ -1,3 +1,4 @@
+import { Gamer } from "@prisma/client";
 import { orm } from "../../prisma/prismaClient";
 import bcrypt from "bcrypt";
 
@@ -21,11 +22,15 @@ type GamerUpdateFields = {
   name?: string;
 };
 
-async function update(gamerId: number, data: GamerUpdateFields) {
+async function update(
+  gamerId: number,
+  data: GamerUpdateFields
+): Promise<Gamer> {
   const gamerUpdated = await orm.gamer.update({
     where: { id: gamerId },
     data: data,
   });
+
   await orm.$disconnect();
 
   return gamerUpdated;
