@@ -4,8 +4,7 @@ import { GamerRepository } from "../usecases/gamer";
 export const router = Router();
 
 router.post("/create", async (req, res) => {
-  const data = req.body;
-  const { gamerTag, name, password } = data;
+  const { gamerTag, name, password } = req.body;
 
   const gamer = await GamerRepository.create(gamerTag, name, password);
 
