@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "e18aa4d2-e6e7-4c8b-8c1b-cbb6b8013266",
+		"name": "playtogetherhub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25620664",
+		"_collection_link": "https://www.postman.com/satellite-geologist-77658364/workspace/playtogetherhub/collection/25620664-e18aa4d2-e6e7-4c8b-8c1b-cbb6b8013266?action=share&source=collection_link&creator=25620664"
+	},
+	"item": [
+		{
+			"name": "create gamer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shamell\",\n    \"gamerTag\": \"asdasdaa\",\n    \"password\": \"sha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gamer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gamer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shamell\",\n    \"gamerTag\": \"asdasdaa\",\n    \"password\": \"sha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gamer/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gamer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get gamer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shamell\",\n    \"gamerTag\": \"asdasdaa\",\n    \"password\": \"sha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gamer/get/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gamer",
+						"get",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create games list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnYW1lclRhZyI6ImFzZGFzZGFhYSIsImlhdCI6MTcxNDA5MTMwNSwiZXhwIjoxNzE0MDk0OTA1fQ.maiWtISvTBzFIYqJkkzAWbx-mBY7rRayUeZ2x0waVUg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gamerId\": 7,\n    \"games\": [\n        // {\"externalCode\": 2},\n        {\"externalCode\": 1}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get games",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnYW1lclRhZyI6ImFzZGFzZGFhYSIsImlhdCI6MTcxNDA5MTMwNSwiZXhwIjoxNzE0MDk0OTA1fQ.maiWtISvTBzFIYqJkkzAWbx-mBY7rRayUeZ2x0waVUg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gamerId\": 5,\n    \"games\": [\n        {\"externalCode\": 1},\n        {\"externalCode\": 2}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/get/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"get",
+						"5"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all games",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gamerId\": 5,\n    \"games\": [\n        {\"externalCode\": 1},\n        {\"externalCode\": 2}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search for games",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gamerId\": 5,\n    \"games\": [\n        {\"externalCode\": 1},\n        {\"externalCode\": 2}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/all?search=gta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"all"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "gta"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "match games",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gamerId\": 5,\n    \"games\": [\n        {\"externalCode\": 1},\n        {\"externalCode\": 2}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/match/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"match",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update gamer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shamellao dois\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gamer/update/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gamer",
+						"update",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete gamer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shamellao dois\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gamer/delete-gamer/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gamer",
+						"delete-gamer",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
