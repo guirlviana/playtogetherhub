@@ -1,7 +1,17 @@
 import { Router } from "express";
 import { GamerRepository } from "../usecases/gamer";
+import { login } from "../usecases/authentication";
 
 export const router = Router();
+
+router.post("/login", async (req, res, next) => {
+  const { gamerTag, password } = req.body;
+
+  const token = await login(gamerTag, password);
+  if (!token) return res.status(401).json({ message: "invalid credentials" });
+
+  res.status(200).json({ token: token });
+});
 
 router.post("/create", async (req, res) => {
   const { gamerTag, name, password } = req.body;
