@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { GamerRepository } from "../usecases/gamer";
 import { login } from "../usecases/authentication";
+import { withAuth } from "../middlewares/withAuth";
 
 export const router = Router();
 
@@ -23,7 +24,7 @@ router.post("/create", async (req, res) => {
     .json({ message: "created successfully", data: { gamerId: gamer.id } });
 });
 
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id", withAuth, async (req, res) => {
   const data = req.body;
   const gamerId = parseInt(req.params.id);
 
@@ -32,7 +33,7 @@ router.put("/update/:id", async (req, res) => {
   res.status(200).json({ message: "updated successfully", data: gamerUpdated });
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", withAuth, async (req, res) => {
   const gamerId = parseInt(req.params.id);
 
   await GamerRepository.remove(gamerId);
@@ -40,7 +41,7 @@ router.delete("/delete/:id", async (req, res) => {
   res.status(200).json({ message: "deleted successfully" });
 });
 
-router.get("/get/:id", async (req, res) => {
+router.get("/get/:id", withAuth, async (req, res) => {
   const gamerId = parseInt(req.params.id);
 
   const gamer = await GamerRepository.get(gamerId);
