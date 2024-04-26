@@ -4,7 +4,7 @@ import { login } from "../usecases/authentication";
 
 export const router = Router();
 
-router.post("/login", async (req, res, next) => {
+router.post("/login", async (req, res) => {
   const { gamerTag, password } = req.body;
 
   const token = await login(gamerTag, password);
