@@ -105,7 +105,7 @@ async function match(gamerId: number): Promise<matchGamesReturn[]> {
   return gamerTagsOrdered;
 }
 
-export const GamesRepository = {
+export const GamesAdapter = {
   search,
   match,
   get,
