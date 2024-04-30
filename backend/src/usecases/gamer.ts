@@ -27,7 +27,7 @@ async function update(
   data: GamerUpdateFields
 ): Promise<Gamer> {
   const excludeFields = ["password"];
-  
+
   const gamerUpdated = await orm.gamer.update({
     where: { id: gamerId },
     data: data,
@@ -61,7 +61,7 @@ async function get(
   return gamer;
 }
 
-export const GamerRepository = {
+export const GamerAdapter = {
   create,
   update,
   remove,
