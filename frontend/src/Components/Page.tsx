@@ -5,7 +5,7 @@ type Props = {
 };
 
 function Page({ children }: Props) {
-  return <div className="py-5 px-20 bg-secondary absolute w-full h-full">{children}</div>;
+  return <div className="lg:py-5 lg:px-20 bg-secondary absolute w-full h-full">{children}</div>;
 }
 
 export default Page;
