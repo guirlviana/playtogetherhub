@@ -1,10 +1,12 @@
 import React from "react";
+import HomePage from "./Pages/HomePage";
+import Page from "./Components/Page";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
-      <p>Hello World</p>
-    </div>
+    <Page>
+      <HomePage />
+    </Page>
   );
 }
 
