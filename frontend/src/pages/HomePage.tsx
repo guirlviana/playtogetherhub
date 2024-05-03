@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Components/Button";
 
 function HomePage() {
   return (
@@ -10,8 +11,8 @@ function HomePage() {
         preferences
       </p>
       <div className="flex gap-6">
-        <button className="py-2 px-4 bg-primary text-white rounded-lg">Login</button>
-        <button className="p-2 px-4 bg-primary text-white rounded-lg">Sign up</button>
+        <Button variant="default">Login</Button>
+        <Button variant="default">Sign up</Button>
       </div>
     </div>
   );
