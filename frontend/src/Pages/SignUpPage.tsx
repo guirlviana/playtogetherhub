@@ -6,6 +6,7 @@ function SignUpPage() {
   const [fields, setFieldsValue] = useState({
     name: "",
   });
+
   return (
     <>
       <Title>PlayTogether hub</Title>
@@ -16,6 +17,8 @@ function SignUpPage() {
           setFieldsValue((prevState) => ({ ...prevState, name: v }))
         }
         value={fields.name}
+        direction="col"
+        required
       />
     </>
   );

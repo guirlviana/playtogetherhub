@@ -5,12 +5,13 @@ type Props = {
   name: string;
   value: string;
   required?: boolean;
+  direction?: "col" | "row";
   onChange: (value: string) => void;
 };
 
 function InputWithLabel(props: Props) {
   return (
-    <div>
+    <div className={`flex ${props.direction === "col" && "flex-col"} w-max`}>
       <label htmlFor={props.name}>{props.label}</label>
       <input
         name={props.name}
