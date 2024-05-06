@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../Components/Title";
+import InputWithLabel from "../Components/InputWIthLabel";
 
 function SignUpPage() {
-    return (
-        <Title>PlayTogether hub</Title>
-        
-    )
+  const [fields, setFieldsValue] = useState({
+    name: "",
+  });
+  return (
+    <>
+      <Title>PlayTogether hub</Title>
+      <InputWithLabel
+        label={"Name"}
+        name={"name-input"}
+        onChange={(v) =>
+          setFieldsValue((prevState) => ({ ...prevState, name: v }))
+        }
+        value={fields.name}
+      />
+    </>
+  );
 }
 
 export default SignUpPage;
