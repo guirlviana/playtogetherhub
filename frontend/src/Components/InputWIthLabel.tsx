@@ -3,6 +3,7 @@ import React from "react";
 type Props = {
   label: string;
   name: string;
+  value: string;
   onChange: (value: string) => void;
 };
 
@@ -13,6 +14,7 @@ function InputWithLabel(props: Props) {
       <input
         name={props.name}
         onChange={(e) => props.onChange(e.target.value)}
+        value={props.value}
       />
     </div>
   );
