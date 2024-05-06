@@ -4,7 +4,7 @@ type Props = {
   label: string;
   name: string;
   value: string;
-  required: boolean;
+  required?: boolean;
   onChange: (value: string) => void;
 };
 
