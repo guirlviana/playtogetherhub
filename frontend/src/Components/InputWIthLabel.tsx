@@ -4,6 +4,7 @@ type Props = {
   label: string;
   name: string;
   value: string;
+  required: boolean;
   onChange: (value: string) => void;
 };
 
@@ -15,6 +16,7 @@ function InputWithLabel(props: Props) {
         name={props.name}
         onChange={(e) => props.onChange(e.target.value)}
         value={props.value}
+        required={props.required}
       />
     </div>
   );
