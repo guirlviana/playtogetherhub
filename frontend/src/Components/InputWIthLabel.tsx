@@ -15,7 +15,10 @@ function InputWithLabel(props: Props) {
     <div
       className={`flex w-max gap-1 ${props.direction === "col" && "flex-col"} `}
     >
-      <label htmlFor={props.name}>{props.label}</label>
+      <label htmlFor={props.name}>
+        {props.required && "* "}
+        {props.label}
+      </label>
       <input
         name={props.name}
         onChange={(e) => props.onChange(e.target.value)}
