@@ -12,7 +12,7 @@ function SignUpPage() {
   return (
     <div className="flex flex-col h-full w-full">
       <Title customStyle="pb-10">PlayTogether hub</Title>
-      <form>
+      <form className="flex flex-col gap-4">
         <InputWithLabel
           label={"Name"}
           name={"name-input"}
@@ -41,6 +41,7 @@ function SignUpPage() {
           }
           value={fields.password}
           direction="col"
+          type="password"
           required
         />
       </form>
