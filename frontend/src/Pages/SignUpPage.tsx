@@ -6,11 +6,12 @@ function SignUpPage() {
   const [fields, setFieldsValue] = useState({
     name: "",
     gamerTag: "",
+    password: "",
   });
 
   return (
     <div className="flex flex-col h-full w-full">
-      <Title>PlayTogether hub</Title>
+      <Title customStyle="pb-10">PlayTogether hub</Title>
       <form>
         <InputWithLabel
           label={"Name"}
@@ -29,6 +30,16 @@ function SignUpPage() {
             setFieldsValue((prevState) => ({ ...prevState, gamerTag: v }))
           }
           value={fields.gamerTag}
+          direction="col"
+          required
+        />
+        <InputWithLabel
+          label={"Password"}
+          name={"password-input"}
+          onChange={(v) =>
+            setFieldsValue((prevState) => ({ ...prevState, password: v }))
+          }
+          value={fields.password}
           direction="col"
           required
         />
