@@ -6,9 +6,13 @@ type Props = {
 };
 
 function Title({ children, customStyle }: Props) {
-  const defaultStyle = "text-primary lg:text-9xl text-5xl flex w-auto";
+  const defaultStyle =
+    "text-primary flex w-auto lg:text-8xl md:text-6xl text-3xl";
+  const combinedStyles = customStyle
+    ? `${defaultStyle} ${customStyle}`
+    : defaultStyle;
 
-  return <h1 className={`${defaultStyle} ${customStyle}`}>{children}</h1>;
+  return <h1 className={combinedStyles}>{children}</h1>;
 }
 
 export default Title;
