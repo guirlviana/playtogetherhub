@@ -17,9 +17,11 @@ function HomePage() {
           <Button variant="default" size="small">
             Login
           </Button>
-          <Button variant="default" size="small">
-            Sign up
-          </Button>
+          <a href="/signup">
+            <Button variant="default" size="small">
+              Sign up
+            </Button>
+          </a>
         </div>
       </div>
     </Page>
