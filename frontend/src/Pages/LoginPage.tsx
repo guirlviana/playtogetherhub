@@ -25,6 +25,17 @@ function SignUpPage() {
           direction="col"
           required
         />
+        <InputWithLabel
+          label={"Password"}
+          name={"password-input"}
+          onChange={(v) =>
+            setFieldsValue((prevState) => ({ ...prevState, password: v }))
+          }
+          value={fields.password}
+          direction="col"
+          type="password"
+          required
+        />
       </form>
     </Page>
   );
