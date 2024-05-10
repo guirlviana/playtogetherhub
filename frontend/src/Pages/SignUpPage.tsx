@@ -10,9 +10,9 @@ function SignUpPage() {
   });
 
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col h-full w-full align-center items-center">
       <Title customStyle="pb-10">PlayTogether hub</Title>
-      <form className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 w-1/4">
         <InputWithLabel
           label={"Name"}
           name={"name-input"}
