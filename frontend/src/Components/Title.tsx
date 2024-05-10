@@ -12,7 +12,11 @@ function Title({ children, customStyle }: Props) {
     ? `${defaultStyle} ${customStyle}`
     : defaultStyle;
 
-  return <h1 className={combinedStyles}>{children}</h1>;
+  return (
+    <a href="/">
+      <h1 className={combinedStyles}>{children}</h1>
+    </a>
+  );
 }
 
 export default Title;
