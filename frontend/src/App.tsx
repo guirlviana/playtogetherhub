@@ -3,11 +3,7 @@ import HomePage from "./Pages/HomePage";
 import Page from "./Components/Page";
 
 function App() {
-  return (
-    <Page>
-      <HomePage />
-    </Page>
-  );
+  return <HomePage />;
 }
 
 export default App;
