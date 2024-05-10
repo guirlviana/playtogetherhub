@@ -11,8 +11,12 @@ function HomePage() {
         hub. Discover fellow gamers who share your gaming tastes and preferences
       </p>
       <div className="flex gap-6">
-        <Button variant="default">Login</Button>
-        <Button variant="default">Sign up</Button>
+        <Button variant="default" size="small">
+          Login
+        </Button>
+        <Button variant="default" size="small">
+          Sign up
+        </Button>
       </div>
     </div>
   );
