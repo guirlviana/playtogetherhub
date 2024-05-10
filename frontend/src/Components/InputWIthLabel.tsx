@@ -13,7 +13,7 @@ type Props = {
 function InputWithLabel(props: Props) {
   return (
     <div
-      className={`flex w-max gap-1 ${props.direction === "col" && "flex-col"} `}
+      className={`flex gap-1 ${props.direction === "col" && "flex-col"} `}
     >
       <label htmlFor={props.name}>
         {props.required && "* "}
@@ -25,7 +25,7 @@ function InputWithLabel(props: Props) {
         value={props.value}
         required={props.required}
         type={props?.type ?? "text"}
-        className="p-1 border-r-1 bg-white"
+        className="p-1 rounded-xl bg-white"
       />
     </div>
   );
