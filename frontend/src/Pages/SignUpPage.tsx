@@ -45,9 +45,11 @@ function SignUpPage() {
           type="password"
           required
         />
-        <Button variant="default" size="small">
-          Sign up
-        </Button>
+        <div className="self-center">
+          <Button variant="default" size="small">
+            Sign up
+          </Button>
+        </div>
       </form>
     </div>
   );
