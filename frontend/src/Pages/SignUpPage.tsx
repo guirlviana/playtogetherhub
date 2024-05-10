@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
+import Button from "../Components/Button";
 
 function SignUpPage() {
   const [fields, setFieldsValue] = useState({
@@ -44,6 +45,9 @@ function SignUpPage() {
           type="password"
           required
         />
+        <Button variant="default" size="small">
+          Sign up
+        </Button>
       </form>
     </div>
   );
