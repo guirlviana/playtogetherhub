@@ -14,9 +14,11 @@ function HomePage() {
           preferences
         </p>
         <div className="flex gap-6">
-          <Button variant="default" size="small">
-            Login
-          </Button>
+          <a href="/login">
+            <Button variant="default" size="small">
+              Login
+            </Button>
+          </a>
           <a href="/signup">
             <Button variant="default" size="small">
               Sign up
