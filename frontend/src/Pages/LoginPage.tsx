@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Page from "../Components/Page";
 import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
+import Button from "../Components/Button";
 
 function SignUpPage() {
   const [fields, setFieldsValue] = useState({
@@ -36,6 +37,11 @@ function SignUpPage() {
           type="password"
           required
         />
+        <div className="self-center">
+          <Button variant="default" size="small">
+            Login
+          </Button>
+        </div>
       </form>
     </Page>
   );
