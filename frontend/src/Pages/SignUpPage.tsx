@@ -3,12 +3,14 @@ import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import Page from "../Components/Page";
+import Select from "../Components/Select";
 
 function SignUpPage() {
   const [fields, setFieldsValue] = useState({
     name: "",
     gamerTag: "",
     password: "",
+    favoriteGameId: "",
   });
 
   return (
@@ -45,6 +47,22 @@ function SignUpPage() {
             value={fields.password}
             direction="col"
             type="password"
+            required
+          />
+          <Select
+            name="favorite-game"
+            label="Your most favorite game"
+            direction="col"
+            onChange={(v) =>
+              setFieldsValue((prevState) => ({
+                ...prevState,
+                favoriteGameId: v,
+              }))
+            }
+            options={[
+              { name: "b", value: "2" },
+              { name: "a", value: "1" },
+            ]}
             required
           />
           <div className="self-center">
