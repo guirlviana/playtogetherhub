@@ -7,7 +7,7 @@ type Props = {
 
 function Title({ children, customStyle }: Props) {
   const defaultStyle =
-    "text-primary flex w-auto lg:text-8xl md:text-6xl text-3xl";
+    "text-primary flex w-auto lg:text-8xl md:text-6xl sm:text-6xl text-4xl";
   const combinedStyles = customStyle
     ? `${defaultStyle} ${customStyle}`
     : defaultStyle;
