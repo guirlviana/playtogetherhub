@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 type Props = {
   onChange: (value: string) => void;
@@ -7,6 +7,7 @@ type Props = {
   options: { name: string; value: string }[];
   direction?: "col" | "row";
   required?: boolean;
+  disabled?: boolean;
   customStyle?: string;
 };
 
@@ -16,6 +17,7 @@ function Select({
   onChange,
   name,
   options,
+  disabled,
   required,
   customStyle,
 }: Props) {
@@ -32,6 +34,7 @@ function Select({
         {label}
       </label>
       <select
+        disabled={disabled}
         name={name}
         id={name}
         required={required}
