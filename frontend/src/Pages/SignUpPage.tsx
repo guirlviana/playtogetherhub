@@ -74,6 +74,7 @@ function SignUpPage() {
               }))
             }
             options={availableGames}
+            disabled={!availableGames.length}
             required
           />
           <div className="self-center">
