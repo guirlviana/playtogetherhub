@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import Page from "../Components/Page";
 import Select from "../Components/Select";
+import { searchGames } from "../http/Games";
 
 function SignUpPage() {
+  const [availableGames, setAvailableGames] = useState([]);
   const [fields, setFieldsValue] = useState({
     name: "",
     gamerTag: "",
     password: "",
     favoriteGameId: "",
   });
+
+  useEffect(() => {
+    searchGames().then(({ data }) => {
+      const games = data.data;
+      setAvailableGames(
+        games.map((game: { name: string; externalCode: number }) => ({
+          name: game.name,
+          value: game.externalCode,
+        }))
+      );
+    });
+  }, []);
 
   return (
     <Page>
@@ -59,10 +73,7 @@ function SignUpPage() {
                 favoriteGameId: v,
               }))
             }
-            options={[
-              { name: "b", value: "2" },
-              { name: "a", value: "1" },
-            ]}
+            options={availableGames}
             required
           />
           <div className="self-center">
