@@ -33,12 +33,18 @@ function Select({
       </label>
       <select
         name={name}
+        id={name}
         required={required}
         onChange={(e) => onChange(e.target.value)}
         className="p-1 rounded-xl bg-white"
       >
+        <option value="" className="">
+          Please choose a game
+        </option>
         {options.map((option) => (
-          <option value={option.value}>{option.name}</option>
+          <option key={option.value} value={option.value}>
+            {option.name}
+          </option>
         ))}
       </select>
     </div>
