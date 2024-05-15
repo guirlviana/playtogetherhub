@@ -1,12 +1,17 @@
 import React from "react";
 
-function GamerOverviewItem() {
+type Props = {
+  type: "primary" | "secondary";
+};
+
+function GamerOverviewItem({ type }: Props) {
+  const bgColor = type === "primary" ? "bg-white-100" : "bg-gray-50";
   return (
-    <li className="flex gap-3 self-center p-2">
-      <div className="bg-white rounded-full">
+    <li className={`flex gap-3 p-2 ${bgColor}`}>
+      <div className="bg-white rounded-full h-min flex">
         <img src="./user-logo.webp" width={50} height={50} alt="gamer logo" />
       </div>
-      <div className="flex grow flex-col">
+      <div className="flex grow flex-col justify-center">
         <h5>John Doe</h5>
         <p>@GamerProJohn</p>
       </div>
