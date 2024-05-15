@@ -8,7 +8,7 @@ function MatchGamersPage() {
   return (
     <div>
       <Header />
-      <Page customStyle="flex flex-col gap-2 items-center">
+      <Page customStyle="flex flex-col gap-6 items-center">
         <p className="text-secondary-900 lg:text-4xl md:text-4xl, sm:text-3xl text-3xl">
           Let's play together!
         </p>
