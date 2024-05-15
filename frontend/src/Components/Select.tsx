@@ -21,12 +21,6 @@ function Select({
   required,
   customStyle,
 }: Props) {
-  const defaultStyle =
-    "text-primary flex w-auto lg:text-8xl md:text-6xl sm:text-6xl text-4xl";
-  const combinedStyles = customStyle
-    ? `${defaultStyle} ${customStyle}`
-    : defaultStyle;
-
   return (
     <div className={`flex gap-1 ${direction === "col" && "flex-col"} `}>
       <label htmlFor={name}>
