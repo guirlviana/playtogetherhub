@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
 import GamerOverviewItem from "../Components/GamerOverviewItem";
+import Button from "../Components/Button";
 
 function MatchGamersPage() {
   return (
@@ -13,20 +14,23 @@ function MatchGamersPage() {
         </p>
         <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 sm:h-3/4 w-full h-4/6 overflow-auto">
           <ul className="w-full">
-            <GamerOverviewItem type="primary"/>
-            <GamerOverviewItem type="secondary"/>
-            <GamerOverviewItem type="primary"/>
-            <GamerOverviewItem type="secondary"/>
-            <GamerOverviewItem type="primary"/>
-            <GamerOverviewItem type="secondary"/>
-            <GamerOverviewItem type="primary"/>
-            <GamerOverviewItem type="secondary"/>
-            <GamerOverviewItem type="primary"/>
-            <GamerOverviewItem type="secondary"/>
-            <GamerOverviewItem type="primary"/>
-            <GamerOverviewItem type="secondary"/>
+            <GamerOverviewItem type="primary" />
+            <GamerOverviewItem type="secondary" />
+            <GamerOverviewItem type="primary" />
+            <GamerOverviewItem type="secondary" />
+            <GamerOverviewItem type="primary" />
+            <GamerOverviewItem type="secondary" />
+            <GamerOverviewItem type="primary" />
+            <GamerOverviewItem type="secondary" />
+            <GamerOverviewItem type="primary" />
+            <GamerOverviewItem type="secondary" />
+            <GamerOverviewItem type="primary" />
+            <GamerOverviewItem type="secondary" />
           </ul>
         </div>
+        <Button variant={"default"} size={"medium"}>
+          <p className="text-3xl">MATCH</p>
+        </Button>
       </Page>
     </div>
   );
