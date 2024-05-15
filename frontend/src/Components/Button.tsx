@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 type Props = {
   children: ReactNode;
   variant: "default";
-  size: "small";
+  size: "small" | "medium";
 };
 
 function Button({ children, variant, size }: Props) {
@@ -12,6 +12,7 @@ function Button({ children, variant, size }: Props) {
   };
   const sizes = {
     small: "w-24 h-12",
+    medium: "w-48 h-20",
   };
 
   const combinedStyles = `${variants[variant]} ${sizes[size]}`;
