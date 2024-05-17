@@ -16,9 +16,24 @@ function GamerProfile() {
           isDropDownOpen ? "block" : "hidden"
         }`}
       >
-        <a href="/profile" className="text-gray-300 pr-5 p-1 text-1xl">Profile</a>
-        <a href="/gamerlist" className="text-gray-300 pr-5 p-1 text-1xl">Gamer list</a>
-        <a href="/logout" className="text-red-600 pr-5 p-1 text-1xl border-t">Log out</a>
+        <a
+          href="/profile"
+          className="text-gray-300 hover:bg-primary-200 hover:text-white pr-5 p-1 text-1xl"
+        >
+          Profile
+        </a>
+        <a
+          href="/gamerlist"
+          className="text-gray-300 hover:bg-primary-200 hover:text-white pr-5 p-1 text-1xl"
+        >
+          Gamer list
+        </a>
+        <a
+          href="/logout"
+          className="text-red-600 hover:bg-red-600 hover:text-white pr-5 p-1 text-1xl border-t"
+        >
+          Log out
+        </a>
       </div>
     </div>
   );
