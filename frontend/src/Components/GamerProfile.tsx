@@ -7,7 +7,7 @@ function GamerProfile() {
     <div className="inline-block relative">
       <div
         onClick={() => setIsDropdownOpen((prev) => !prev)}
-        className="bg-white rounded-full"
+        className="bg-white rounded-full cursor-pointer"
       >
         <img src="./user-logo.webp" width={50} height={50} alt="gamer logo" />
       </div>
