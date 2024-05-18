@@ -2,7 +2,20 @@ import React, { useState, useRef, useEffect } from "react";
 
 function GamerProfile() {
   const [isDropDownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutsideDropdownArea = (event: { target: any }) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideDropdownArea);
+    return () => {
+      document.removeEventListener("click", handleClickOutsideDropdownArea);
+    };
+  }, []);
 
   return (
     <div className="inline-block relative" ref={dropdownRef}>
