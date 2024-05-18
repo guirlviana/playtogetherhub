@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function GamerProfile() {
   const [isDropDownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   return (
-    <div className="inline-block relative">
+    <div className="inline-block relative" ref={dropdownRef}>
       <div
         onClick={() => setIsDropdownOpen((prev) => !prev)}
         className="bg-white rounded-full cursor-pointer relative"
