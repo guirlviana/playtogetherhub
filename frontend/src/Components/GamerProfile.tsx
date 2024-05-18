@@ -14,7 +14,7 @@ function GamerProfile() {
           <div className="flex flex-col transition-all duration-300 ease-in-out origin-top-right transform absolute right-0 top-full mt-2 w-40 z-10 bg-white rounded-md shadow-lg animate-slide-down">
             <a
               href="/profile"
-              className="text-gray-300 hover:bg-primary-200 hover:text-white pr-5 p-1 text-1xl"
+              className="text-gray-300 hover:bg-primary-200 hover:rounded-t-md hover:text-white pr-5 p-1 text-1xl"
             >
               Profile
             </a>
@@ -26,7 +26,7 @@ function GamerProfile() {
             </a>
             <a
               href="/logout"
-              className="text-red-600 hover:bg-red-600 hover:text-white pr-5 p-1 text-1xl border-t"
+              className="text-red-600 hover:bg-red-600 hover:rounded-b-md hover:text-white pr-5 p-1 text-1xl border-t"
             >
               Log out
             </a>
