@@ -6,7 +6,10 @@ function GamerListPage() {
     <>
       <Header />
       <Page>
-        <List title="My Games" games={[1, 1, 1, 1]} />
+        <div className="flex flex-col gap-10">
+          <List title="My Games" games={[1, 1, 1, 1]} />
+          <List title="Library" games={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]} />
+        </div>
       </Page>
     </>
   );
