@@ -32,6 +32,7 @@ function List(props: ListProps) {
         {props.games.map((game) => (
           <li key={game}>
             <img src="./game.webp" alt="game logo" width={150} height={210} />
+            <img src="./game.webp" alt="game logo" height={210} />
           </li>
         ))}
       </ul>
