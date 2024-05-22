@@ -10,7 +10,7 @@ function GamerListPage() {
           <List title="My Games" games={[1, 1, 1, 1]} />
           <List
             title="Library"
-            isLibraryList
+            customStyle="height-library-list"
             games={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
           />
         </div>
@@ -22,16 +22,16 @@ function GamerListPage() {
 type ListProps = {
   title: string;
   games: any[];
+  customStyle?: string;
 };
 
 function List(props: ListProps) {
   return (
     <div className="flex flex-col gap-5">
       <h3 className="text-2xl text-secondary-800">{props.title}</h3>
-      <ul className="game-list">
+      <ul className={`game-list ${props?.customStyle ?? ""}`}>
         {props.games.map((game) => (
           <li key={game}>
-            <img src="./game.webp" alt="game logo" width={150} height={210} />
             <img src="./game.webp" alt="game logo" height={210} />
           </li>
         ))}

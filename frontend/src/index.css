@@ -29,11 +29,16 @@ body {
 .game-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   padding: 1.5rem;
   gap: 6px;
   overflow: auto;
   border-radius: 6px;
   background-color: #c6daf4;
+}
+
+.height-library-list {
+  height: calc(420px - 3rem);
 }
 
 .game-list li {
