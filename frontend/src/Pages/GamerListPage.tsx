@@ -8,7 +8,11 @@ function GamerListPage() {
       <Page>
         <div className="flex flex-col gap-10">
           <List title="My Games" games={[1, 1, 1, 1]} />
-          <List title="Library" games={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]} />
+          <List
+            title="Library"
+            isLibraryList
+            games={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+          />
         </div>
       </Page>
     </>
