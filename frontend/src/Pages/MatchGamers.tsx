@@ -8,11 +8,11 @@ function MatchGamersPage() {
   return (
     <div>
       <Header />
-      <Page customStyle="flex flex-col gap-6 items-center">
+      <Page customStyle="h-screen flex flex-col gap-6 items-center">
         <p className="text-secondary-900 lg:text-4xl md:text-4xl, sm:text-3xl text-3xl">
           Let's play together!
         </p>
-        <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 sm:h-3/4 w-full h-4/6 overflow-auto">
+        <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full h-3/5 overflow-auto">
           <ul className="w-full">
             <GamerOverviewItem type="primary" />
             <GamerOverviewItem type="secondary" />

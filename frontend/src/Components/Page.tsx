@@ -6,8 +6,7 @@ type Props = {
 };
 
 function Page({ children, customStyle }: Props) {
-  const defaultStyle =
-    "lg:py-5 lg:px-40 p-5 bg-secondary absolute w-full h-full";
+  const defaultStyle = "lg:py-5 lg:px-40 p-5 bg-secondary absolute w-full";
   const combinedStyles = customStyle
     ? `${defaultStyle} ${customStyle}`
     : defaultStyle;
