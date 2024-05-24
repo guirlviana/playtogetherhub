@@ -2,6 +2,7 @@ import { Router } from "express";
 import { GamerAdapter } from "../usecases/gamer";
 import { login } from "../usecases/authentication";
 import { withAuth } from "../middlewares/withAuth";
+import { GamesAdapter } from "../usecases/games";
 
 export const router = Router();
 
@@ -15,9 +16,12 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  const { gamerTag, name, password } = req.body;
+  const { gamerTag, name, password, favoriteGameId } = req.body;
 
   const gamer = await GamerAdapter.create(gamerTag, name, password);
+  await GamesAdapter.create(gamer.id, [
+    { externalCode: favoriteGameId, gamerId: gamer.id },
+  ]);
 
   res
     .status(200)
