@@ -1,6 +1,18 @@
 import axios from "axios";
 import { BASE_URL } from "./config";
 
-export const searchGames = () => {
-  return axios.post(BASE_URL + "/games/all");
+type CreateGamer = {
+  gamerTag: string;
+  name: string;
+  password: string;
+  favoriteGameId: number
+};
+
+export const createGamer = ({ gamerTag, name, password, favoriteGameId }: CreateGamer) => {
+  return axios.post(BASE_URL + "/gamer/create", {
+    gamerTag,
+    name,
+    password,
+    favoriteGameId
+  });
 };
