@@ -27,6 +27,9 @@ function SignUpPage() {
     });
   }, []);
 
+  const onClickSignUp = () => {
+  };
+
   return (
     <Page>
       <div className="flex flex-col h-full w-full align-center items-center">
@@ -78,7 +81,11 @@ function SignUpPage() {
             required
           />
           <div className="self-center">
-            <Button variant="default" size="small">
+            <Button
+              variant="default"
+              size="small"
+              onClick={() => onClickSignUp()}
+            >
               Sign up
             </Button>
           </div>
