@@ -5,6 +5,8 @@ import Button from "../Components/Button";
 import Page from "../Components/Page";
 import Select from "../Components/Select";
 import { searchGames } from "../http/Games";
+import { createGamer } from "../http/Gamer";
+import { redirect } from "react-router-dom";
 
 function SignUpPage() {
   const [availableGames, setAvailableGames] = useState([]);
@@ -28,6 +30,10 @@ function SignUpPage() {
   }, []);
 
   const onClickSignUp = () => {
+    createGamer({
+      ...fields,
+      favoriteGameId: parseInt(fields.favoriteGameId),
+    }).then(() => redirect("/login"));
   };
 
   return (

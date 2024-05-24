@@ -5,14 +5,27 @@ type CreateGamer = {
   gamerTag: string;
   name: string;
   password: string;
-  favoriteGameId: number
+  favoriteGameId: number;
 };
 
-export const createGamer = ({ gamerTag, name, password, favoriteGameId }: CreateGamer) => {
-  return axios.post(BASE_URL + "/gamer/create", {
-    gamerTag,
-    name,
-    password,
-    favoriteGameId
-  });
+export const createGamer = ({
+  gamerTag,
+  name,
+  password,
+  favoriteGameId,
+}: CreateGamer) => {
+  return axios.post(
+    BASE_URL + "/gamer/create",
+    {
+      gamerTag,
+      name,
+      password,
+      favoriteGameId,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 };
