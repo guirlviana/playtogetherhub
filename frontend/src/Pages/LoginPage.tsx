@@ -9,7 +9,9 @@ function SignUpPage() {
     gamerTag: "",
     password: "",
   });
-  
+
+  const onClickLogIn = () => {};
+
   return (
     <Page>
       <div className="flex flex-col h-full w-full align-center items-center">
@@ -37,7 +39,11 @@ function SignUpPage() {
             required
           />
           <div className="self-center">
-            <Button variant="default" size="small">
+            <Button
+              variant="default"
+              size="small"
+              onClick={() => onClickLogIn()}
+            >
               Login
             </Button>
           </div>
