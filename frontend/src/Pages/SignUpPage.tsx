@@ -6,9 +6,10 @@ import Page from "../Components/Page";
 import Select from "../Components/Select";
 import { searchGames } from "../http/Games";
 import { createGamer } from "../http/Gamer";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SignUpPage() {
+  const navigate = useNavigate();
   const [availableGames, setAvailableGames] = useState([]);
   const [fields, setFieldsValue] = useState({
     name: "",
@@ -33,14 +34,14 @@ function SignUpPage() {
     createGamer({
       ...fields,
       favoriteGameId: parseInt(fields.favoriteGameId),
-    }).then(() => redirect("/login"));
+    }).then(() => navigate("/login"));
   };
 
   return (
     <Page>
       <div className="flex flex-col h-full w-full align-center items-center">
         <Title customStyle="pb-10">PlayTogether hub</Title>
-        <form className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
+        <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
           <InputWithLabel
             label={"Name"}
             name={"name-input"}
@@ -95,7 +96,7 @@ function SignUpPage() {
               Sign up
             </Button>
           </div>
-        </form>
+        </div>
       </div>
     </Page>
   );
