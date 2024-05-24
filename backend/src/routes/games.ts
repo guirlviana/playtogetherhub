@@ -28,7 +28,7 @@ router.get("/match/:gamerId", withAuth, async (req, res) => {
   res.status(200).json({ data: match });
 });
 
-router.get("/all", withAuth, (req, res) => {
+router.get("/all", (req, res) => {
   const { search } = req.query;
 
   if (search) {
