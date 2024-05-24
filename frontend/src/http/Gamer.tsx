@@ -29,3 +29,18 @@ export const createGamer = ({
     }
   );
 };
+
+export const login = (gamerTag: string, password: string) => {
+  return axios.post(
+    BASE_URL + "/gamer/login",
+    {
+      gamerTag,
+      password,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
