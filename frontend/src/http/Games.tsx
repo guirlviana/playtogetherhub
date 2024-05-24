@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const BASE_URL = "http://localhost:3001";
+import { BASE_URL } from "./config";
 
 export const searchGames = () => {
   return axios.get(BASE_URL + "/games/all");
