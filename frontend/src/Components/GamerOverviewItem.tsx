@@ -19,9 +19,14 @@ function GamerOverviewItem(props: Props) {
         <p>{props.gamerTag}</p>
       </div>
       <div className="flex gap-1">
-        <img src="./game.webp" width={50} height={80} alt="game logo" />
-        <img src="./game.webp" width={50} height={80} alt="game logo" />
-        <img src="./game.webp" width={50} height={80} alt="game logo" />
+        {props.games.map((game) => (
+          <img
+            src={`./${game.externalCode}.png`}
+            width={50}
+            height={80}
+            alt="game logo"
+          />
+        ))}
       </div>
     </li>
   );
