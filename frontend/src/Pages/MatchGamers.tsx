@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
 import GamerOverviewItem from "../Components/GamerOverviewItem";
@@ -29,18 +29,14 @@ function MatchGamersPage() {
         </p>
         <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full h-3/5 overflow-auto">
           <ul className="w-full">
-            <GamerOverviewItem type="primary" />
-            <GamerOverviewItem type="secondary" />
-            <GamerOverviewItem type="primary" />
-            <GamerOverviewItem type="secondary" />
-            <GamerOverviewItem type="primary" />
-            <GamerOverviewItem type="secondary" />
-            <GamerOverviewItem type="primary" />
-            <GamerOverviewItem type="secondary" />
-            <GamerOverviewItem type="primary" />
-            <GamerOverviewItem type="secondary" />
-            <GamerOverviewItem type="primary" />
-            <GamerOverviewItem type="secondary" />
+            {gamers.map((gamer) => (
+              <GamerOverviewItem
+                type={gamer.id % 2 === 0 ? "primary" : "secondary"}
+                gamerTag={gamer.gamerTag}
+                name={gamer.name}
+                games={gamer.games}
+              />
+            ))}
           </ul>
         </div>
         <Button variant={"default"} size={"medium"}>
