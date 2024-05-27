@@ -3,8 +3,23 @@ import Header from "../Components/Header";
 import Page from "../Components/Page";
 import GamerOverviewItem from "../Components/GamerOverviewItem";
 import Button from "../Components/Button";
+import { getAllGamers } from "../http/Gamer";
+
+type Gamer = {
+  id: number;
+  gamerTag: string;
+  name: string;
+  games: { externalCode: number }[];
+};
 
 function MatchGamersPage() {
+  const [gamers, setGamers] = useState<Gamer[]>([]);
+
+  useEffect(() => {
+    getAllGamers().then(({ data }) => setGamers(data.data));
+  }, []);
+
+  console.log(gamers);
   return (
     <div>
       <Header />
