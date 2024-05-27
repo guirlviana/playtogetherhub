@@ -52,3 +52,9 @@ router.get("/get/:id", withAuth, async (req, res) => {
 
   res.status(200).json({ message: "get successfully", data: gamer });
 });
+
+router.get("/all", async (req, res) => {
+  const gamers = await GamerAdapter.getAll();
+
+  res.status(200).json({ message: "get successfully", data: gamers });
+});
