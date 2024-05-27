@@ -61,10 +61,18 @@ async function get(
   return gamer;
 }
 
-async function getAll(): Promise<Gamer[]> {
+// TODO: remove this any type
+async function getAll(): Promise<any[]> {
   const gamers = await orm.gamer.findMany({
-    include: {
-      games: true,
+    select: {
+      id: true,
+      gamerTag: true,
+      name: true,
+      games: {
+        select: {
+          externalCode: true,
+        },
+      },
     },
   });
 
@@ -76,5 +84,5 @@ export const GamerAdapter = {
   update,
   remove,
   get,
-  getAll
+  getAll,
 };
