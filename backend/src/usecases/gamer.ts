@@ -61,9 +61,20 @@ async function get(
   return gamer;
 }
 
+async function getAll(): Promise<Gamer[]> {
+  const gamers = await orm.gamer.findMany({
+    include: {
+      games: true,
+    },
+  });
+
+  return gamers;
+}
+
 export const GamerAdapter = {
   create,
   update,
   remove,
   get,
+  getAll
 };
