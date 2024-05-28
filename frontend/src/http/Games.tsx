@@ -5,7 +5,7 @@ export const searchGames = () => {
   return axios.get(BASE_URL + "/games/all");
 };
 
-export const matchGamers = (gamerId: number) => {
+export const matchFellowGamers = (gamerId: number) => {
   return axios.post(
     BASE_URL + "/gamer/match",
     { gamerId },
