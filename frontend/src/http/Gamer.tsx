@@ -52,11 +52,3 @@ export const getAllGamers = () => {
     },
   });
 };
-
-export const matchGamers = (gamerId: number) => {
-  return axios.get(BASE_URL + "/gamer/match", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-};
