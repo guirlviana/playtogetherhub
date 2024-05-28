@@ -6,9 +6,13 @@ export const searchGames = () => {
 };
 
 export const matchGamers = (gamerId: number) => {
-  return axios.post(BASE_URL + "/gamer/match", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  return axios.post(
+    BASE_URL + "/gamer/match",
+    { gamerId },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 };
