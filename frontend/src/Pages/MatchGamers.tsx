@@ -4,6 +4,7 @@ import Page from "../Components/Page";
 import GamerOverviewItem from "../Components/GamerOverviewItem";
 import Button from "../Components/Button";
 import { getAllGamers } from "../http/Gamer";
+import { matchFellowGamers } from "../http/Games";
 
 type Gamer = {
   id: number;
@@ -19,7 +20,11 @@ function MatchGamersPage() {
     getAllGamers().then(({ data }) => setGamers(data.data));
   }, []);
 
-  console.log(gamers);
+  const matchGamers = async () => {
+    const gamerIdMocked = 17;
+    matchFellowGamers(gamerIdMocked).then(({ data }) => setGamers(data.data));
+  };
+
   return (
     <div>
       <Header />
@@ -39,7 +44,7 @@ function MatchGamersPage() {
             ))}
           </ul>
         </div>
-        <Button variant={"default"} size={"medium"}>
+        <Button variant={"default"} size={"medium"} onClick={() => matchGamers}>
           <p className="text-3xl">MATCH</p>
         </Button>
       </Page>
