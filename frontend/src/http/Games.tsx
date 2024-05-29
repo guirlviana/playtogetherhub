@@ -13,3 +13,13 @@ export const matchFellowGamers = (gamerId: number, token: string | null) => {
     },
   });
 };
+
+export const createOrUpdateGames = (
+  gamerId: number,
+  games: { id: number; gamerId: number; externalCode: number }[]
+) => {
+  return axios.post(BASE_URL + "/create-or-update", {
+    gamerId,
+    games,
+  });
+};
