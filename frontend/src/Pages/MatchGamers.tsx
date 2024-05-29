@@ -22,7 +22,10 @@ function MatchGamersPage() {
 
   const matchGamers = async () => {
     const gamerIdMocked = 17;
-    matchFellowGamers(gamerIdMocked).then(({ data }) => setGamers(data.data));
+    const token = localStorage.getItem("token")
+    matchFellowGamers(gamerIdMocked, token).then(
+      ({ data }) => setGamers(data.data)
+    );
   };
 
   return (
