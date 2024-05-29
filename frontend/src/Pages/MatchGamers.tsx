@@ -42,7 +42,7 @@ function MatchGamersPage() {
         <p className="text-secondary-900 lg:text-4xl md:text-4xl, sm:text-3xl text-3xl">
           Let's play together!
         </p>
-        <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full h-3/5 overflow-auto">
+        <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 overflow-auto">
           <ul className="w-full">
             {gamers.map((gamer, index) => (
               <GamerOverviewItem
