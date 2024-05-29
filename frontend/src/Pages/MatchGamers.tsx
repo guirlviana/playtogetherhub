@@ -44,7 +44,11 @@ function MatchGamersPage() {
             ))}
           </ul>
         </div>
-        <Button variant={"default"} size={"medium"} onClick={() => matchGamers}>
+        <Button
+          variant={"default"}
+          size={"medium"}
+          onClick={() => matchGamers()}
+        >
           <p className="text-3xl">MATCH</p>
         </Button>
       </Page>
