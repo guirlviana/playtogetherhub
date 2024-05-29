@@ -37,10 +37,10 @@ function MatchGamersPage() {
         </p>
         <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full h-3/5 overflow-auto">
           <ul className="w-full">
-            {gamers.map((gamer) => (
+            {gamers.map((gamer, index) => (
               <GamerOverviewItem
                 key={gamer.id}
-                type={gamer.id % 2 === 0 ? "primary" : "secondary"}
+                type={index % 2 === 0 ? "primary" : "secondary"}
                 gamerTag={gamer.gamerTag}
                 name={gamer.name}
                 games={gamer.games ?? []}
