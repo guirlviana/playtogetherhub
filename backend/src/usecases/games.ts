@@ -92,14 +92,24 @@ async function match(gamerId: number): Promise<matchGamesReturn[]> {
   const gamersIds = gamersByGamesMatched.map((gamer) => gamer.gamerId);
   const gamers = await orm.gamer.findMany({
     where: { id: { in: gamersIds } },
-    select: { gamerTag: true, id: true },
+    select: {
+      gamerTag: true,
+      id: true,
+      name: true,
+      games: { select: { externalCode: true } },
+    },
   });
 
   const gamerTagsOrdered: matchGamesReturn[] = gamersIds.map((id) => {
     const gamer = gamers.find((gamer) => gamer.id === id);
     if (!gamer) return { id: 0, gamerTag: "" };
 
-    return { id: gamer.id, gamerTag: gamer.gamerTag };
+    return {
+      id: gamer.id,
+      gamerTag: gamer.gamerTag,
+      name: gamer.name,
+      games: gamer.games,
+    };
   });
 
   return gamerTagsOrdered;
