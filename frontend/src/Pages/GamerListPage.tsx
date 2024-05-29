@@ -9,7 +9,8 @@ function GamerListPage() {
   const [gamerList, setGamerlist] = useState([]);
 
   useEffect(() => {
-    getGamerList(gamerIdMocked).then(({ data }) => setGamerlist(data.data));
+    const token = localStorage.getItem("token");
+    getGamerList(gamerIdMocked, token).then(({ data }) => setGamerlist(data.data));
   }, []);
 
   return (

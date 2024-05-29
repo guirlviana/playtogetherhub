@@ -34,6 +34,11 @@ export const createOrUpdateGames = (
   );
 };
 
-export const getGamerList = (gamerId: number) => {
-  return axios.get(BASE_URL + `/games/getList/${gamerId}`);
+export const getGamerList = (gamerId: number, token) => {
+  return axios.get(BASE_URL + `/games/getList/${gamerId}`, {
+    headers: {
+      "Content-Type": "application/json",
+      token: token,
+    },
+  });
 };
