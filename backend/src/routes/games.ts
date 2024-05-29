@@ -33,7 +33,6 @@ router.get("/all", (req, res) => {
 
   if (search) {
     const games = GamesAdapter.search(search.toString());
-    console.log(games);
     res.status(200).json({ data: games, nameSearched: search });
   }
 
