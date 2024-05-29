@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
-import { getGamerList } from "../http/Games";
+import { getGamerList, searchGames } from "../http/Games";
 
 const gamerIdMocked = 17;
 
 function GamerListPage() {
   const [gamerList, setGamerlist] = useState([]);
+  const [gamesGallery, setGamesGallery] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    getGamerList(gamerIdMocked, token).then(({ data }) => setGamerlist(data.data));
+    getGamerList(gamerIdMocked, token).then(({ data }) =>
+      setGamerlist(data.data)
+    );
+
+    searchGames().then(({ data }) => setGamesGallery(data.data));
   }, []);
 
   return (
@@ -22,7 +27,7 @@ function GamerListPage() {
           <List
             title="Library"
             customStyle="height-library-list"
-            games={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+            games={gamesGallery}
           />
         </div>
       </Page>
@@ -46,7 +51,6 @@ function List(props: ListProps) {
             <img
               src={`./${game.externalCode}.png`}
               alt="game logo"
-              height={210}
             />
           </li>
         ))}
