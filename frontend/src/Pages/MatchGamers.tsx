@@ -13,15 +13,16 @@ type Gamer = {
   games: { externalCode: number }[];
 };
 
+const gamerIdMocked = 17;
+
 function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
 
   useEffect(() => {
-    getAllGamers().then(({ data }) => setGamers(data.data));
+    getAllGamers(gamerIdMocked).then(({ data }) => setGamers(data.data));
   }, []);
 
   const matchGamers = async () => {
-    const gamerIdMocked = 17;
     const token = localStorage.getItem("token");
     matchFellowGamers(gamerIdMocked, token).then(({ data }) => {
       const gamersMatched = data.data;
@@ -30,7 +31,7 @@ function MatchGamersPage() {
         return;
       }
       // TODO: Toast saying that doesnt match gamers
-      getAllGamers().then(({ data }) => setGamers(data.data));
+      getAllGamers(gamerIdMocked).then(({ data }) => setGamers(data.data));
     });
   };
 
