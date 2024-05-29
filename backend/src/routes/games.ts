@@ -12,7 +12,7 @@ router.post("/create-or-update", withAuth, async (req, res) => {
   res.status(200).json({ message: "game list updated!", data: gamesUpdated });
 });
 
-router.get("/get/:gamerId", withAuth, async (req, res) => {
+router.get("/getList/:gamerId", withAuth, async (req, res) => {
   const { gamerId } = req.params;
 
   const games = await GamesAdapter.get(parseInt(gamerId));
