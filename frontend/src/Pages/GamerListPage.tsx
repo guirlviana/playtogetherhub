@@ -1,7 +1,17 @@
+import { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
+import { getGamerList } from "../http/Games";
+
+const gamerIdMocked = 17;
 
 function GamerListPage() {
+  const [gamerList, setGamerlist] = useState([]);
+
+  useEffect(() => {
+    getGamerList(gamerIdMocked).then(({ data }) => setGamerlist(data.data));
+  }, []);
+
   return (
     <>
       <Header />
