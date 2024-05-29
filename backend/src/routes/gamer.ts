@@ -19,7 +19,7 @@ router.post("/create", async (req, res) => {
   const { gamerTag, name, password, favoriteGameId } = req.body;
 
   const gamer = await GamerAdapter.create(gamerTag, name, password);
-  await GamesAdapter.create(gamer.id, [
+  await GamesAdapter.createOrUpdate(gamer.id, [
     { externalCode: favoriteGameId, gamerId: gamer.id },
   ]);
 
