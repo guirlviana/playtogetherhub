@@ -50,6 +50,7 @@ function List(props: ListProps) {
           <li key={game}>
             <img
               src={`./${game.externalCode}.png`}
+              className="h-full"
               alt="game logo"
             />
           </li>
