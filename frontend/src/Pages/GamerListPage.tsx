@@ -17,7 +17,7 @@ function GamerListPage() {
       <Header />
       <Page>
         <div className="flex flex-col gap-10">
-          <List title="My Games" games={[1, 1, 1, 1]} />
+          <List title="My Games" games={gamerList} />
           <List
             title="Library"
             customStyle="height-library-list"
@@ -42,7 +42,11 @@ function List(props: ListProps) {
       <ul className={`game-list ${props?.customStyle ?? ""}`}>
         {props.games.map((game) => (
           <li key={game}>
-            <img src="./game.webp" alt="game logo" height={210} />
+            <img
+              src={`./${game.externalCode}.png`}
+              alt="game logo"
+              height={210}
+            />
           </li>
         ))}
       </ul>
