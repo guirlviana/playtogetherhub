@@ -62,8 +62,9 @@ async function get(
 }
 
 // TODO: remove this any type
-async function getAll(): Promise<any[]> {
+async function getAll(gamerId: number): Promise<any[]> {
   const gamers = await orm.gamer.findMany({
+    where: { id: { not: gamerId } },
     select: {
       id: true,
       gamerTag: true,
