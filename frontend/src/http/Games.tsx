@@ -34,4 +34,6 @@ export const createOrUpdateGames = (
   );
 };
 
-export const getGamerList = (gamerId: number) => {};
+export const getGamerList = (gamerId: number) => {
+  return axios.get(BASE_URL + `/games/getList/${gamerId}`);
+};
