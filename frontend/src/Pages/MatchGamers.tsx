@@ -24,7 +24,13 @@ function MatchGamersPage() {
     const gamerIdMocked = 17;
     const token = localStorage.getItem("token");
     matchFellowGamers(gamerIdMocked, token).then(({ data }) => {
-      setGamers(data.data);
+      const gamersMatched = data.data;
+      if (gamersMatched.length > 0) {
+        setGamers(gamersMatched);
+        return;
+      }
+      // TODO: Toast saying that doesnt match gamers
+      getAllGamers().then(({ data }) => setGamers(data.data));
     });
   };
 
