@@ -22,7 +22,7 @@ function getAll(): Game[] {
   return games;
 }
 
-async function create(
+async function createOrUpdate(
   gamerId: number,
   games: GameModel[]
 ): Promise<GameModel[]> {
@@ -120,5 +120,5 @@ export const GamesAdapter = {
   match,
   get,
   getAll,
-  create,
+  createOrUpdate,
 };

@@ -4,10 +4,10 @@ import { withAuth } from "../middlewares/withAuth";
 
 export const router = Router();
 
-router.post("/create", withAuth, async (req, res) => {
+router.post("/create-or-update", withAuth, async (req, res) => {
   const { gamerId, games } = req.body;
 
-  const gamesUpdated = await GamesAdapter.create(gamerId, games);
+  const gamesUpdated = await GamesAdapter.createOrUpdate(gamerId, games);
 
   res.status(200).json({ message: "game list updated!", data: gamesUpdated });
 });
