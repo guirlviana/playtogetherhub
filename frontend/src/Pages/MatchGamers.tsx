@@ -22,10 +22,10 @@ function MatchGamersPage() {
 
   const matchGamers = async () => {
     const gamerIdMocked = 17;
-    const token = localStorage.getItem("token")
-    matchFellowGamers(gamerIdMocked, token).then(
-      ({ data }) => setGamers(data.data)
-    );
+    const token = localStorage.getItem("token");
+    matchFellowGamers(gamerIdMocked, token).then(({ data }) => {
+      setGamers(data.data);
+    });
   };
 
   return (
@@ -39,10 +39,11 @@ function MatchGamersPage() {
           <ul className="w-full">
             {gamers.map((gamer) => (
               <GamerOverviewItem
+                key={gamer.id}
                 type={gamer.id % 2 === 0 ? "primary" : "secondary"}
                 gamerTag={gamer.gamerTag}
                 name={gamer.name}
-                games={gamer.games}
+                games={gamer.games ?? []}
               />
             ))}
           </ul>

@@ -21,6 +21,7 @@ function GamerOverviewItem(props: Props) {
       <div className="flex gap-1">
         {props.games.map((game) => (
           <img
+            key={game.externalCode}
             src={`./${game.externalCode}.png`}
             width={50}
             height={80}
