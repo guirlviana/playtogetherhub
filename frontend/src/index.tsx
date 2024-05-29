@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
-import MatchGamersPage from "./Pages/MatchGamers";
+import MatchGamersPage from "./Pages/MatchGamersPage";
 import GamerListPage from "./Pages/GamerListPage";
 
 const root = ReactDOM.createRoot(
