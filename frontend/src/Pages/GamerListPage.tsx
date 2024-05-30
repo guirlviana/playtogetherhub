@@ -5,9 +5,13 @@ import { getGamerList, searchGames } from "../http/Games";
 
 const gamerIdMocked = 17;
 
+type Game = {
+  externalCode: number;
+};
+
 function GamerListPage() {
-  const [gamerList, setGamerlist] = useState([]);
-  const [gamesGallery, setGamesGallery] = useState([]);
+  const [gamerList, setGamerlist] = useState<Game[]>([]);
+  const [gamesGallery, setGamesGallery] = useState<Game[]>([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -37,7 +41,8 @@ function GamerListPage() {
 
 type ListProps = {
   title: string;
-  games: any[];
+  games: Game[];
+  onClick: (externalCode: number) => void;
   customStyle?: string;
 };
 
