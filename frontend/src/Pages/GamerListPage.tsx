@@ -56,6 +56,8 @@ function GamerListPage() {
     setGamerlist((prevState) => [...prevState, { externalCode }]);
   };
 
+  const saveGamerList = () => {};
+
   return (
     <>
       <Header />
@@ -66,7 +68,7 @@ function GamerListPage() {
             games={gamerList}
             onClick={(externalCode) => appendGameToGamesGallery(externalCode)}
             rightContent={
-              <button>
+              <button onClick={() => saveGamerList()}>
                 <p className="text-1xl text-gray-400 self-end">Save</p>
               </button>
             }
