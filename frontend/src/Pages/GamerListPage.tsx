@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
 import { getGamerList, searchGames } from "../http/Games";
@@ -41,7 +41,7 @@ function GamerListPage() {
 
   const appendGameToGamesGallery = (externalCode: number) => {
     if (gamerList.length === 1) {
-      return
+      return;
     }
     setGamerlist((prevState) =>
       prevState.filter((game) => game.externalCode !== externalCode)
@@ -82,13 +82,17 @@ type ListProps = {
   title: string;
   games: Game[];
   onClick: (externalCode: number) => void;
+  rightContent?: ReactNode;
   customStyle?: string;
 };
 
 function List(props: ListProps) {
   return (
     <div className="flex flex-col gap-5">
-      <h3 className="text-2xl text-secondary-800">{props.title}</h3>
+      <div className="flex flex-row gap-3 justify-between">
+        <h3 className="text-2xl text-secondary-800">{props.title}</h3>
+        {props.rightContent}
+      </div>
       <ul className={`game-list ${props?.customStyle ?? ""}`}>
         {props.games.map((game) => (
           <li
