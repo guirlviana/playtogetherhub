@@ -15,24 +15,28 @@ function GamerListPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    let gamerList: Game[] = [];
-    getGamerList(gamerIdMocked, token).then(({ data }) => {
-      gamerList = data.data;
-      setGamerlist(gamerList);
-    });
+    const fillGamesLists = async () => {
+      let gamerList: Game[] = [];
+      await getGamerList(gamerIdMocked, token).then(({ data }) => {
+        gamerList = data.data;
+        setGamerlist(gamerList);
+      });
 
-    searchGames().then(({ data }) => {
-      const availableGames: Game[] = data.data;
-      const externalCodesInGamerList = gamerList.map(
-        (game) => game.externalCode
-      );
+      await searchGames().then(({ data }) => {
+        const availableGames: Game[] = data.data;
+        const externalCodesInGamerList = gamerList.map(
+          (game) => game.externalCode
+        );
 
-      setGamesGallery(
-        availableGames.filter(
-          (game) => !externalCodesInGamerList.includes(game.externalCode)
-        )
-      );
-    });
+        setGamesGallery(
+          availableGames.filter(
+            (game) => !externalCodesInGamerList.includes(game.externalCode)
+          )
+        );
+      });
+    };
+
+    fillGamesLists();
   }, []);
 
   const appendGameToGamesGallery = (externalCode: number) => {
