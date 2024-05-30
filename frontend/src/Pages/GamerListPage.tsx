@@ -15,23 +15,55 @@ function GamerListPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    getGamerList(gamerIdMocked, token).then(({ data }) =>
-      setGamerlist(data.data)
-    );
+    let gamerList: Game[] = [];
+    getGamerList(gamerIdMocked, token).then(({ data }) => {
+      gamerList = data.data;
+      setGamerlist(gamerList);
+    });
 
-    searchGames().then(({ data }) => setGamesGallery(data.data));
+    searchGames().then(({ data }) => {
+      const availableGames: Game[] = data.data;
+      const externalCodesInGamerList = gamerList.map(
+        (game) => game.externalCode
+      );
+
+      setGamesGallery(
+        availableGames.filter(
+          (game) => !externalCodesInGamerList.includes(game.externalCode)
+        )
+      );
+    });
   }, []);
+
+  const appendGameToGamesGallery = (externalCode: number) => {
+    setGamerlist((prevState) =>
+      prevState.filter((game) => game.externalCode !== externalCode)
+    );
+    setGamesGallery((prevState) => [...prevState, { externalCode }]);
+  };
+
+  const appendGameToGamerList = (externalCode: number) => {
+    setGamesGallery((prevState) =>
+      prevState.filter((game) => game.externalCode !== externalCode)
+    );
+    setGamerlist((prevState) => [...prevState, { externalCode }]);
+  };
 
   return (
     <>
       <Header />
       <Page>
         <div className="flex flex-col gap-10">
-          <List title="My Games" games={gamerList} />
+          <List
+            title="My Games"
+            games={gamerList}
+            onClick={(externalCode) => appendGameToGamesGallery(externalCode)}
+          />
           <List
             title="Library"
             customStyle="height-library-list"
             games={gamesGallery}
+            onClick={(externalCode) => appendGameToGamerList(externalCode)}
           />
         </div>
       </Page>
@@ -52,7 +84,10 @@ function List(props: ListProps) {
       <h3 className="text-2xl text-secondary-800">{props.title}</h3>
       <ul className={`game-list ${props?.customStyle ?? ""}`}>
         {props.games.map((game) => (
-          <li key={game}>
+          <li
+            key={game.externalCode}
+            onClick={() => props.onClick(game.externalCode)}
+          >
             <img
               src={`./${game.externalCode}.png`}
               className="h-full"
