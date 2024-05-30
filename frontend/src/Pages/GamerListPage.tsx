@@ -50,6 +50,10 @@ function GamerListPage() {
   };
 
   const appendGameToGamerList = (externalCode: number) => {
+    if (gamerList.length === 6) {
+      return;
+    }
+
     setGamesGallery((prevState) =>
       prevState.filter((game) => game.externalCode !== externalCode)
     );
