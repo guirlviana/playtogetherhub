@@ -65,6 +65,11 @@ function GamerListPage() {
             title="My Games"
             games={gamerList}
             onClick={(externalCode) => appendGameToGamesGallery(externalCode)}
+            rightContent={
+              <button>
+                <p className="text-1xl text-gray-400 self-end">Save</p>
+              </button>
+            }
           />
           <List
             title="Library"
