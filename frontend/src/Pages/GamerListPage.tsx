@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
-import { getGamerList, searchGames } from "../http/Games";
+import { createOrUpdateGames, getGamerList, searchGames } from "../http/Games";
 
 const gamerIdMocked = 17;
 
@@ -60,7 +60,11 @@ function GamerListPage() {
     setGamerlist((prevState) => [...prevState, { externalCode }]);
   };
 
-  const saveGamerList = () => {};
+  const saveGamerList = () => {
+    createOrUpdateGames(gamerIdMocked, gamerList, token).then(() =>
+      alert("Saved")
+    );
+  };
 
   return (
     <>
