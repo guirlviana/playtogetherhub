@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
+import { getGamer } from "../http/Gamer";
 
 type Props = {};
 
+const gamerIdMocked = 17;
+
 function ProfilePage(props: Props) {
+  const token = localStorage.getItem("token");
   const [profile, setProfile] = useState({
     gamerTag: "",
     name: "",
   });
+
+  useEffect(() => {
+    getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
+  }, [token]);
 
   return (
     <>
