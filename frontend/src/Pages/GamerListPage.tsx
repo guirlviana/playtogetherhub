@@ -10,11 +10,11 @@ type Game = {
 };
 
 function GamerListPage() {
+  const token = localStorage.getItem("token");
   const [gamerList, setGamerlist] = useState<Game[]>([]);
   const [gamesGallery, setGamesGallery] = useState<Game[]>([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
     const fillGamesLists = async () => {
       let gamerList: Game[] = [];
       await getGamerList(gamerIdMocked, token).then(({ data }) => {
@@ -37,7 +37,7 @@ function GamerListPage() {
     };
 
     fillGamesLists();
-  }, []);
+  }, [token]);
 
   const appendGameToGamesGallery = (externalCode: number) => {
     if (gamerList.length === 1) {
