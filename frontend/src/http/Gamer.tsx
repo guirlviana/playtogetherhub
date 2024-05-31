@@ -53,10 +53,11 @@ export const getAllGamers = (gamerId: number) => {
   });
 };
 
-export const getGamer = (gamerId: number) => {
+export const getGamer = (gamerId: number, token: string | null) => {
   return axios.get(BASE_URL + `/gamer/get/${gamerId}`, {
     headers: {
       "Content-Type": "application/json",
+      token: token,
     },
   });
 };
