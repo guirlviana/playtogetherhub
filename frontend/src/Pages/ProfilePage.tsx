@@ -22,17 +22,19 @@ function ProfilePage(props: Props) {
     <>
       <Header />
       <Page>
-        <div className="flex flex-row gap-6">
+        <div className="flex flex-col gap-6 items-center">
           <div className="bg-white rounded-full cursor-pointer relative">
             <img
               src="./user-logo.webp"
-              width={450}
-              height={450}
+              width={250}
+              height={250}
               alt="gamer logo"
             />
           </div>
-          <h1>{profile.gamerTag}</h1>
-          <h3>{profile.name}</h3>
+          <div className="flex flex-col">
+            <h1>{profile.gamerTag}</h1>
+            <h3>{profile.name}</h3>
+          </div>
         </div>
       </Page>
     </>
