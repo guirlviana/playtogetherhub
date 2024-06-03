@@ -14,6 +14,7 @@ type Game = {
 type Fields = { name: string; gamerTag: string };
 
 const gamerIdMocked = 17;
+const EMPTY_FIELD_VALUE = "";
 
 function ProfilePage(props: Props) {
   const token = localStorage.getItem("token");
@@ -83,7 +84,9 @@ function ProfilePage(props: Props) {
   const editGamerData = (updatedFields: Fields) => {
     for (const field in profile) {
       if (
-        updatedFields[field as keyof Fields] !== profile[field as keyof Fields]
+        updatedFields[field as keyof Fields] !==
+          profile[field as keyof Fields] &&
+        updatedFields[field as keyof Fields] !== EMPTY_FIELD_VALUE
       ) {
         editGamer(gamerIdMocked, updatedFields, token).then(() => {
           setEditgamerModalIsOpen(false);
