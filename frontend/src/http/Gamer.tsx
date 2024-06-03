@@ -69,12 +69,12 @@ type editData = {
 
 export const editGamer = (
   gamerId: number,
-  token: string | null,
-  data: editData
+  data: editData,
+  token: string | null
 ) => {
   return axios.put(
     BASE_URL + `/gamer/update/${gamerId}`,
-    { data },
+    { ...data },
     {
       headers: {
         "Content-Type": "application/json",
