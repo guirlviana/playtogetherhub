@@ -127,6 +127,7 @@ function ProfilePage(props: Props) {
         <ModalEditGamer
           onCloseModal={() => setEditgamerModalIsOpen(false)}
           onSave={() => {}}
+          gamerFields={profile}
         />
       )}
     </>

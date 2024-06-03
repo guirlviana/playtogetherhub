@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 
+type EditableFields = { name: string; gamerTag: string };
+
 type Props = {
   onCloseModal: () => void;
   onSave: () => void;
+  gamerFields: EditableFields;
 };
 
 function ModalEditGamer(props: Props) {
-  const [fields, setFieldsValue] = useState({
-    name: "",
-    gamerTag: "",
-  });
+  const [fields, setFieldsValue] = useState<EditableFields>(props.gamerFields);
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
