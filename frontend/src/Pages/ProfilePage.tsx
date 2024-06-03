@@ -14,6 +14,8 @@ const gamerIdMocked = 17;
 
 function ProfilePage(props: Props) {
   const token = localStorage.getItem("token");
+  const [editGamerModalIsOpen, setEditgamerModalIsOpen] =
+    useState<boolean>(false);
   const [gamerList, setGamerlist] = useState<Game[]>([]);
   const [gamesGallery, setGamesGallery] = useState<Game[]>([]);
   const [profile, setProfile] = useState({
@@ -73,8 +75,6 @@ function ProfilePage(props: Props) {
     );
   };
 
-  const editGamer = () => {};
-
   useEffect(() => {
     getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
   }, [token]);
@@ -84,7 +84,10 @@ function ProfilePage(props: Props) {
       <Header />
       <Page customStyle="flex flex-col gap-10">
         <div className="flex flex-col gap-6 items-center rounded-sm bg-secondary-100 w-min px-10 pb-10 pt-5 self-center">
-          <button className="self-end" onClick={() => editGamer()}>
+          <button
+            className="self-end"
+            onClick={() => setEditgamerModalIsOpen((current) => !current)}
+          >
             <p className="text-1xl text-gray-400">Edit</p>
           </button>
           <div className="bg-white rounded-full  relative">
