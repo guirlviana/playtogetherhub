@@ -6,7 +6,7 @@ type EditableFields = { name: string; gamerTag: string };
 
 type Props = {
   onCloseModal: () => void;
-  onSave: () => void;
+  onSave: (fields: EditableFields) => void;
   gamerFields: EditableFields;
 };
 
@@ -45,7 +45,11 @@ function ModalEditGamer(props: Props) {
           />
 
           <div className="self-center">
-            <Button variant="default" size="small" onClick={() => {}}>
+            <Button
+              variant="default"
+              size="small"
+              onClick={() => props.onSave(fields)}
+            >
               Save
             </Button>
           </div>
