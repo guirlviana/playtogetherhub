@@ -73,6 +73,8 @@ function ProfilePage(props: Props) {
     );
   };
 
+  const editGamer = () => {};
+
   useEffect(() => {
     getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
   }, [token]);
@@ -81,7 +83,10 @@ function ProfilePage(props: Props) {
     <>
       <Header />
       <Page customStyle="flex flex-col gap-10">
-        <div className="flex flex-col gap-6 items-center rounded-sm bg-secondary-100 w-min p-10 self-center">
+        <div className="flex flex-col gap-6 items-center rounded-sm bg-secondary-100 w-min px-10 pb-10 pt-5 self-center">
+          <button className="self-end" onClick={() => editGamer()}>
+            <p className="text-1xl text-gray-400">Edit</p>
+          </button>
           <div className="bg-white rounded-full  relative">
             <img
               src="./user-logo.webp"
