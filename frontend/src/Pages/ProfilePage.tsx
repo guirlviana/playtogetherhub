@@ -25,6 +25,10 @@ function ProfilePage(props: Props) {
   });
 
   useEffect(() => {
+    getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
+  }, [token]);
+
+  useEffect(() => {
     const fillGamesLists = async () => {
       let gamerList: Game[] = [];
       await getGamerList(gamerIdMocked, token).then(({ data }) => {
@@ -75,10 +79,6 @@ function ProfilePage(props: Props) {
       alert("Saved")
     );
   };
-
-  useEffect(() => {
-    getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
-  }, [token]);
 
   return (
     <>
