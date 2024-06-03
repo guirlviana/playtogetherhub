@@ -123,7 +123,12 @@ function ProfilePage(props: Props) {
           />
         </div>
       </Page>
-      {editGamerModalIsOpen && <ModalEditGamer />}
+      {editGamerModalIsOpen && (
+        <ModalEditGamer
+          onCloseModal={() => setEditgamerModalIsOpen(false)}
+          onSave={() => {}}
+        />
+      )}
     </>
   );
 }
