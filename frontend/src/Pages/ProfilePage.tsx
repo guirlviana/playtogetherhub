@@ -81,8 +81,8 @@ function ProfilePage(props: Props) {
     <>
       <Header />
       <Page customStyle="flex flex-col gap-10">
-        <div className="flex flex-col gap-6 items-center">
-          <div className="bg-white rounded-full relative">
+        <div className="flex flex-col gap-6 items-center rounded-sm bg-secondary-100 w-min p-10 self-center">
+          <div className="bg-white rounded-full  relative">
             <img
               src="./user-logo.webp"
               width={250}
