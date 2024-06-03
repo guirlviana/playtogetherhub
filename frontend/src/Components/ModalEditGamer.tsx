@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
-import Page from "../Components/Page";
 
 function ModalEditGamer() {
   const [fields, setFieldsValue] = useState({
@@ -14,6 +12,7 @@ function ModalEditGamer() {
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
       <div className="flex flex-col h-full w-full align-center items-center justify-around">
         <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
+          <span className="flex self-end">✕</span>
           <InputWithLabel
             label={"Name"}
             name={"name-input"}
