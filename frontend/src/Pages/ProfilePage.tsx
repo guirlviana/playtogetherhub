@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Page from "../Components/Page";
-import { getGamer } from "../http/Gamer";
+import { editGamer, getGamer } from "../http/Gamer";
 import { createOrUpdateGames, getGamerList, searchGames } from "../http/Games";
 import ModalEditGamer from "../Components/ModalEditGamer";
 
@@ -11,6 +11,8 @@ type Game = {
   externalCode: number;
 };
 
+type Fields = { name: string; gamerTag: string };
+
 const gamerIdMocked = 17;
 
 function ProfilePage(props: Props) {
@@ -19,16 +21,14 @@ function ProfilePage(props: Props) {
     useState<boolean>(false);
   const [gamerList, setGamerlist] = useState<Game[]>([]);
   const [gamesGallery, setGamesGallery] = useState<Game[]>([]);
-  const [profile, setProfile] = useState({
+  const [profile, setProfile] = useState<Fields>({
     gamerTag: "",
     name: "",
   });
 
   useEffect(() => {
     getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
-  }, [token]);
 
-  useEffect(() => {
     const fillGamesLists = async () => {
       let gamerList: Game[] = [];
       await getGamerList(gamerIdMocked, token).then(({ data }) => {
@@ -80,6 +80,19 @@ function ProfilePage(props: Props) {
     );
   };
 
+  const editGamerData = (updatedFields: Fields) => {
+    for (const field in profile) {
+      if (
+        updatedFields[field as keyof Fields] !== profile[field as keyof Fields]
+      ) {
+        editGamer(gamerIdMocked, updatedFields, token).then(() => {
+          setEditgamerModalIsOpen(false);
+          setProfile(updatedFields);
+        });
+      }
+    }
+  };
+
   return (
     <>
       <Header />
@@ -126,7 +139,7 @@ function ProfilePage(props: Props) {
       {editGamerModalIsOpen && (
         <ModalEditGamer
           onCloseModal={() => setEditgamerModalIsOpen(false)}
-          onSave={() => {}}
+          onSave={(updatedFields: Fields) => editGamerData(updatedFields)}
           gamerFields={profile}
         />
       )}
