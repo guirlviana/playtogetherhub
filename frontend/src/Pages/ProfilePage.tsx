@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import Page from "../Components/Page";
 import { getGamer } from "../http/Gamer";
 import { createOrUpdateGames, getGamerList, searchGames } from "../http/Games";
+import ModalEditGamer from "../Components/ModalEditGamer";
 
 type Props = {};
 
@@ -122,6 +123,7 @@ function ProfilePage(props: Props) {
           />
         </div>
       </Page>
+      {editGamerModalIsOpen && <ModalEditGamer />}
     </>
   );
 }
