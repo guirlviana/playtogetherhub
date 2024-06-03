@@ -7,7 +7,6 @@ import HomePage from "./Pages/HomePage";
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
 import MatchGamersPage from "./Pages/MatchGamersPage";
-import GamerListPage from "./Pages/GamerListPage";
 import ProfilePage from "./Pages/ProfilePage";
 
 const root = ReactDOM.createRoot(
@@ -19,7 +18,6 @@ const router = createBrowserRouter([
   { path: "/signup", element: <SignUpPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/match", element: <MatchGamersPage /> },
-  { path: "/gamerlist", element: <GamerListPage /> },
   { path: "/profile", element: <ProfilePage /> },
 ]);
 
