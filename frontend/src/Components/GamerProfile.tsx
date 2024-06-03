@@ -33,12 +33,6 @@ function GamerProfile() {
               Profile
             </a>
             <a
-              href="/gamerlist"
-              className="text-gray-300 hover:bg-primary-200 hover:text-white pr-5 p-1 text-1xl"
-            >
-              Gamer list
-            </a>
-            <a
               href="/logout"
               className="text-red-600 hover:bg-red-600 hover:rounded-b-md hover:text-white pr-5 p-1 text-1xl border-t"
             >
