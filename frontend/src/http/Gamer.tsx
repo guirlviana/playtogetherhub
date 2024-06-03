@@ -61,3 +61,25 @@ export const getGamer = (gamerId: number, token: string | null) => {
     },
   });
 };
+
+type editData = {
+  name?: string;
+  gamerTag?: string;
+};
+
+export const editGamer = (
+  gamerId: number,
+  token: string | null,
+  data: editData
+) => {
+  return axios.put(
+    BASE_URL + `/gamer/update/${gamerId}`,
+    { data },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        token: token,
+      },
+    }
+  );
+};
