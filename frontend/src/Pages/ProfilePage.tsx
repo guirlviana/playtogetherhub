@@ -90,9 +90,9 @@ function ProfilePage(props: Props) {
               alt="gamer logo"
             />
           </div>
-          <div className="flex flex-col">
-            <h1>{profile.gamerTag}</h1>
-            <h3>{profile.name}</h3>
+          <div className="flex flex-col items-center gap-2">
+            <h1 className="text-5xl text-primary-900">{profile.gamerTag}</h1>
+            <h3 className="text-3xl text-secondary-800">{profile.name}</h3>
           </div>
         </div>
         <div className="flex flex-col gap-10">
