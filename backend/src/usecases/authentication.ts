@@ -11,7 +11,9 @@ export async function login(gamerTag: string, password: string) {
   if (!result) return false;
 
   const secret = String(process.env.LOGIN_SECRET_KEY);
-  const token = jwt.sign({ gamerTag }, secret, { expiresIn: "1h" });
+  const token = jwt.sign({ gamerId: gamer.id }, secret, {
+    expiresIn: "4h",
+  });
 
   return token;
 }
