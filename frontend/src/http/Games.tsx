@@ -15,14 +15,12 @@ export const matchFellowGamers = (gamerId: number, token: string | null) => {
 };
 
 export const createOrUpdateGames = (
-  gamerId: number,
   games: { externalCode: number }[],
   token: string | null
 ) => {
   return axios.post(
     BASE_URL + "/games/create-or-update",
     {
-      gamerId,
       games,
     },
     {
@@ -34,8 +32,8 @@ export const createOrUpdateGames = (
   );
 };
 
-export const getGamerList = (gamerId: number, token: string | null) => {
-  return axios.get(BASE_URL + `/games/getList/${gamerId}`, {
+export const getGamerList = (token: string | null) => {
+  return axios.get(BASE_URL + `/games/getList`, {
     headers: {
       "Content-Type": "application/json",
       token: token,

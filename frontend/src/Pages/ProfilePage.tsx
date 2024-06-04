@@ -13,7 +13,6 @@ type Game = {
 
 type Fields = { name: string; gamerTag: string };
 
-const gamerIdMocked = 17;
 const EMPTY_FIELD_VALUE = "";
 
 function ProfilePage(props: Props) {
@@ -32,7 +31,7 @@ function ProfilePage(props: Props) {
 
     const fillGamesLists = async () => {
       let gamerList: Game[] = [];
-      await getGamerList(gamerIdMocked, token).then(({ data }) => {
+      await getGamerList(token).then(({ data }) => {
         gamerList = data.data;
         setGamerlist(gamerList);
       });
@@ -76,9 +75,7 @@ function ProfilePage(props: Props) {
   };
 
   const saveGamerList = () => {
-    createOrUpdateGames(gamerIdMocked, gamerList, token).then(() =>
-      alert("Saved")
-    );
+    createOrUpdateGames(gamerList, token).then(() => alert("Saved"));
   };
 
   const editGamerData = (updatedFields: Fields) => {

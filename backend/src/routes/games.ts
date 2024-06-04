@@ -1,21 +1,30 @@
-import { Router } from "express";
+import { Router, Request } from "express";
 import { GamesAdapter } from "../usecases/games";
 import { withAuth } from "../middlewares/withAuth";
 
 export const router = Router();
 
-router.post("/create-or-update", withAuth, async (req, res) => {
-  const { gamerId, games } = req.body;
+type Session = { [key: string]: any };
 
-  const gamesUpdated = await GamesAdapter.createOrUpdate(gamerId, games);
+type PlayTogetherhubRequest = Request & Session;
 
-  res.status(200).json({ message: "game list updated!", data: gamesUpdated });
-});
+router.post(
+  "/create-or-update",
+  withAuth,
+  async (req: PlayTogetherhubRequest, res) => {
+    const { games } = req.body;
+    const gamerId = req.session.gamerId;
 
-router.get("/getList/:gamerId", withAuth, async (req, res) => {
-  const { gamerId } = req.params;
+    const gamesUpdated = await GamesAdapter.createOrUpdate(gamerId, games);
 
-  const games = await GamesAdapter.get(parseInt(gamerId));
+    res.status(200).json({ message: "game list updated!", data: gamesUpdated });
+  }
+);
+
+router.get("/getList", withAuth, async (req: PlayTogetherhubRequest, res) => {
+  const gamerId = req.session.gamerId;
+
+  const games = await GamesAdapter.get(gamerId);
 
   res.status(200).json({ data: games });
 });
