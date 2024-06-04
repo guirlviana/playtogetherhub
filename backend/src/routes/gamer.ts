@@ -6,9 +6,9 @@ import { GamesAdapter } from "../usecases/games";
 
 export const router = Router();
 
-type PlayTogetherhubRequest = Request & {
-  session?: { gamerId: number };
-};
+type Session = { [key: string]: any };
+
+type PlayTogetherhubRequest = Request & Session;
 
 router.post("/login", async (req, res) => {
   const { gamerTag, password } = req.body;
@@ -49,8 +49,8 @@ router.delete("/delete/:id", withAuth, async (req, res) => {
   res.status(200).json({ message: "deleted successfully" });
 });
 
-router.get("/get/:id", withAuth, async (req: PlayTogetherhubRequest, res) => {
-  const gamerId = parseInt(req.params.id);
+router.get("/get", withAuth, async (req: PlayTogetherhubRequest, res) => {
+  const gamerId = req.session.gamerId;
 
   const gamer = await GamerAdapter.get(gamerId);
 

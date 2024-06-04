@@ -28,7 +28,7 @@ function ProfilePage(props: Props) {
   });
 
   useEffect(() => {
-    getGamer(gamerIdMocked, token).then(({ data }) => setProfile(data.data));
+    getGamer(token).then(({ data }) => setProfile(data.data));
 
     const fillGamesLists = async () => {
       let gamerList: Game[] = [];
