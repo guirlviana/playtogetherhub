@@ -7,7 +7,7 @@ import { GamesAdapter } from "../usecases/games";
 export const router = Router();
 
 type PlayTogetherhubRequest = Request & {
-  session?: { gamerId: string };
+  session?: { gamerId: number };
 };
 
 router.post("/login", async (req, res) => {
@@ -57,10 +57,10 @@ router.get("/get/:id", withAuth, async (req: PlayTogetherhubRequest, res) => {
   res.status(200).json({ message: "get successfully", data: gamer });
 });
 
-router.get("/all/:gamerId", async (req, res) => {
-  const { gamerId } = req.params;
+router.get("/all", async (req: PlayTogetherhubRequest, res) => {
+  const gamerId = req.session?.gamerId;
 
-  const gamers = await GamerAdapter.getAll(parseInt(gamerId));
+  const gamers = await GamerAdapter.getAll(gamerId);
 
   res.status(200).json({ message: "get successfully", data: gamers });
 });

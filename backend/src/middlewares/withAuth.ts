@@ -13,7 +13,7 @@ export function withAuth(
 
   try {
     const decoded = jwt.verify(token, secret) as { [key: string]: any };
-    req.session = { gamerId: decoded.gamerId };
+    req.session = { gamerId: parseInt(decoded.gamerId) };
     next();
   } catch {
     return res.status(401).json({ token: "Invalid token provided" });
