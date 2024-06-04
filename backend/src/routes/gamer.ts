@@ -1,10 +1,14 @@
-import { Router } from "express";
+import { Router, Request } from "express";
 import { GamerAdapter } from "../usecases/gamer";
 import { login } from "../usecases/authentication";
 import { withAuth } from "../middlewares/withAuth";
 import { GamesAdapter } from "../usecases/games";
 
 export const router = Router();
+
+type PlayTogetherhubRequest = Request & {
+  session?: { gamerId: string };
+};
 
 router.post("/login", async (req, res) => {
   const { gamerTag, password } = req.body;
@@ -45,7 +49,7 @@ router.delete("/delete/:id", withAuth, async (req, res) => {
   res.status(200).json({ message: "deleted successfully" });
 });
 
-router.get("/get/:id", withAuth, async (req, res) => {
+router.get("/get/:id", withAuth, async (req: PlayTogetherhubRequest, res) => {
   const gamerId = parseInt(req.params.id);
 
   const gamer = await GamerAdapter.get(gamerId);
