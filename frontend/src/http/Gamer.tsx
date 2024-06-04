@@ -67,13 +67,9 @@ type editData = {
   gamerTag?: string;
 };
 
-export const editGamer = (
-  gamerId: number,
-  data: editData,
-  token: string | null
-) => {
+export const editGamer = (data: editData, token: string | null) => {
   return axios.put(
-    BASE_URL + `/gamer/update/${gamerId}`,
+    BASE_URL + `/gamer/update`,
     { ...data },
     {
       headers: {

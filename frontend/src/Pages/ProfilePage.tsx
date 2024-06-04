@@ -88,7 +88,7 @@ function ProfilePage(props: Props) {
           profile[field as keyof Fields] &&
         updatedFields[field as keyof Fields] !== EMPTY_FIELD_VALUE
       ) {
-        editGamer(gamerIdMocked, updatedFields, token).then(() => {
+        editGamer(updatedFields, token).then(() => {
           setEditgamerModalIsOpen(false);
           setProfile(updatedFields);
         });

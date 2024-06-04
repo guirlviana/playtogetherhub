@@ -32,9 +32,9 @@ router.post("/create", async (req, res) => {
     .json({ message: "created successfully", data: { gamerId: gamer.id } });
 });
 
-router.put("/update/:id", withAuth, async (req, res) => {
+router.put("/update", withAuth, async (req: PlayTogetherhubRequest, res) => {
   const data = req.body;
-  const gamerId = parseInt(req.params.id);
+  const gamerId = req.session.gamerId;
 
   const gamerUpdated = await GamerAdapter.update(gamerId, data);
 
