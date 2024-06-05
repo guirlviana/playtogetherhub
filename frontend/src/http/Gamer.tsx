@@ -45,8 +45,8 @@ export const login = (gamerTag: string, password: string) => {
   );
 };
 
-export const getAllGamers = (gamerId: number) => {
-  return axios.get(BASE_URL + `/gamer/all/${gamerId}`, {
+export const getAllGamers = () => {
+  return axios.get(BASE_URL + `/gamer/all`, {
     headers: {
       "Content-Type": "application/json",
     },

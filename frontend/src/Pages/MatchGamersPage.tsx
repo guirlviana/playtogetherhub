@@ -19,7 +19,7 @@ function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
 
   useEffect(() => {
-    getAllGamers(gamerIdMocked).then(({ data }) => setGamers(data.data));
+    getAllGamers().then(({ data }) => setGamers(data.data));
   }, []);
 
   const matchGamers = async () => {
@@ -31,7 +31,7 @@ function MatchGamersPage() {
         return;
       }
       // TODO: Toast saying that doesnt match gamers
-      getAllGamers(gamerIdMocked).then(({ data }) => setGamers(data.data));
+      getAllGamers().then(({ data }) => setGamers(data.data));
     });
   };
 
