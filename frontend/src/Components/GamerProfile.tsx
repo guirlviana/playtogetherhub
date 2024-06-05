@@ -31,7 +31,12 @@ function GamerProfile() {
         onClick={() => setIsDropdownOpen((prev) => !prev)}
         className="bg-white rounded-full cursor-pointer relative"
       >
-        <img src="./user-logo.webp" width={50} height={50} alt="gamer logo" />
+        <img
+          src="https://mc-heads.net/avatar/0385"
+          width={50}
+          height={50}
+          alt="gamer logo"
+        />
         {isDropDownOpen && (
           <div className="flex flex-col self-start transition-all duration-300 ease-in-out origin-top-right transform absolute right-0 top-full mt-2 w-40 z-10 bg-white rounded-md shadow-lg animate-slide-down">
             <a

@@ -7,12 +7,22 @@ type Props = {
   games: { externalCode: number }[];
 };
 
+const imageIcons = [
+  "https://mc-heads.net/avatar/rezendeevil",
+  "https://mc-heads.net/avatar/pactw",
+  "https://mc-heads.net/avatar/edukof",
+  "https://mc-heads.net/avatar/jvnq",
+  "https://mc-heads.net/avatar/mikethelink",
+];
+
 function GamerOverviewItem(props: Props) {
   const bgColor = props.type === "primary" ? "bg-white-100" : "bg-gray-50";
+  const choosedImageIcon = imageIcons[Math.floor(Math.random() * 5)];
+
   return (
     <li className={`flex gap-3 p-2 ${bgColor}`}>
       <div className="bg-white rounded-full h-min flex">
-        <img src="./user-logo.webp" width={50} height={50} alt="gamer logo" />
+        <img src={choosedImageIcon} width={50} height={50} alt="gamer logo" />
       </div>
       <div className="flex grow flex-col justify-center">
         <h5>{props.name}</h5>
