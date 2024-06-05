@@ -1,11 +1,11 @@
-import axios from "axios";
+import { httpService } from "./config";
 
 export const searchGames = () => {
-  return axios.get("/games/all");
+  return httpService.get("/games/all");
 };
 
 export const matchFellowGamers = (token: string | null) => {
-  return axios.get("/games/match", {
+  return httpService.get("/games/match", {
     headers: {
       "Content-Type": "application/json",
       token: token,
@@ -17,7 +17,7 @@ export const createOrUpdateGames = (
   games: { externalCode: number }[],
   token: string | null
 ) => {
-  return axios.post(
+  return httpService.post(
     "/games/create-or-update",
     {
       games,
@@ -32,7 +32,7 @@ export const createOrUpdateGames = (
 };
 
 export const getGamerList = (token: string | null) => {
-  return axios.get("/games/getList", {
+  return httpService.get("/games/getList", {
     headers: {
       "Content-Type": "application/json",
       token: token,

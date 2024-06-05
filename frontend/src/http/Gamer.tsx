@@ -1,4 +1,4 @@
-import axios from "axios";
+import { httpService } from "./config";
 
 type CreateGamer = {
   gamerTag: string;
@@ -13,7 +13,7 @@ export const createGamer = ({
   password,
   favoriteGameId,
 }: CreateGamer) => {
-  return axios.post(
+  return httpService.post(
     "/gamer/create",
     {
       gamerTag,
@@ -30,7 +30,7 @@ export const createGamer = ({
 };
 
 export const login = (gamerTag: string, password: string) => {
-  return axios.post(
+  return httpService.post(
     "/gamer/login",
     {
       gamerTag,
@@ -45,7 +45,7 @@ export const login = (gamerTag: string, password: string) => {
 };
 
 export const getAllGamers = () => {
-  return axios.get("/gamer/all", {
+  return httpService.get("/gamer/all", {
     headers: {
       "Content-Type": "application/json",
     },
@@ -53,7 +53,7 @@ export const getAllGamers = () => {
 };
 
 export const getGamer = (token: string | null) => {
-  return axios.get("/gamer/get", {
+  return httpService.get("/gamer/get", {
     headers: {
       "Content-Type": "application/json",
       token: token,
@@ -67,7 +67,7 @@ type editData = {
 };
 
 export const editGamer = (data: editData, token: string | null) => {
-  return axios.put(
+  return httpService.put(
     "/gamer/update",
     { ...data },
     {
