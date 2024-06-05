@@ -57,7 +57,7 @@ router.get("/get", withAuth, async (req: PlayTogetherhubRequest, res) => {
   res.status(200).json({ message: "get successfully", data: gamer });
 });
 
-router.get("/all", async (req: PlayTogetherhubRequest, res) => {
+router.get("/all", withAuth, async (req: PlayTogetherhubRequest, res) => {
   const gamerId = req.session?.gamerId;
 
   const gamers = await GamerAdapter.getAll(gamerId);
