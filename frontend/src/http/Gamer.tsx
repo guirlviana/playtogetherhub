@@ -1,5 +1,4 @@
 import axios from "axios";
-import { BASE_URL } from "./config";
 
 type CreateGamer = {
   gamerTag: string;
@@ -15,7 +14,7 @@ export const createGamer = ({
   favoriteGameId,
 }: CreateGamer) => {
   return axios.post(
-    BASE_URL + "/gamer/create",
+    "/gamer/create",
     {
       gamerTag,
       name,
@@ -32,7 +31,7 @@ export const createGamer = ({
 
 export const login = (gamerTag: string, password: string) => {
   return axios.post(
-    BASE_URL + "/gamer/login",
+    "/gamer/login",
     {
       gamerTag,
       password,
@@ -46,7 +45,7 @@ export const login = (gamerTag: string, password: string) => {
 };
 
 export const getAllGamers = () => {
-  return axios.get(BASE_URL + `/gamer/all`, {
+  return axios.get("/gamer/all", {
     headers: {
       "Content-Type": "application/json",
     },
@@ -54,7 +53,7 @@ export const getAllGamers = () => {
 };
 
 export const getGamer = (token: string | null) => {
-  return axios.get(BASE_URL + `/gamer/get`, {
+  return axios.get("/gamer/get", {
     headers: {
       "Content-Type": "application/json",
       token: token,
@@ -69,7 +68,7 @@ type editData = {
 
 export const editGamer = (data: editData, token: string | null) => {
   return axios.put(
-    BASE_URL + `/gamer/update`,
+    "/gamer/update",
     { ...data },
     {
       headers: {
