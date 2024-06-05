@@ -74,7 +74,7 @@ function ProfilePage(props: Props) {
   };
 
   const saveGamerList = () => {
-    createOrUpdateGames(gamerList, token).then(() => alert("Saved"));
+    createOrUpdateGames(gamerList).then(() => alert("Saved"));
   };
 
   const editGamerData = (updatedFields: Fields) => {
@@ -84,7 +84,7 @@ function ProfilePage(props: Props) {
           profile[field as keyof Fields] &&
         updatedFields[field as keyof Fields] !== EMPTY_FIELD_VALUE
       ) {
-        editGamer(updatedFields, token).then(() => {
+        editGamer(updatedFields).then(() => {
           setEditgamerModalIsOpen(false);
           setProfile(updatedFields);
         });

@@ -13,7 +13,6 @@ type Gamer = {
   games: { externalCode: number }[];
 };
 
-
 function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
 
@@ -22,8 +21,7 @@ function MatchGamersPage() {
   }, []);
 
   const matchGamers = async () => {
-    const token = localStorage.getItem("token");
-    matchFellowGamers(token).then(({ data }) => {
+    matchFellowGamers().then(({ data }) => {
       const gamersMatched = data.data;
       if (gamersMatched.length > 0) {
         setGamers(gamersMatched);
