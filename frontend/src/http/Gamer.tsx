@@ -28,6 +28,10 @@ export const login = (gamerTag: string, password: string) => {
   });
 };
 
+export const logout = () => {
+  localStorage.removeItem("token");
+};
+
 export const getAllGamers = () => {
   return httpService.get("/gamer/all");
 };
