@@ -53,12 +53,7 @@ export const getAllGamers = () => {
 };
 
 export const getGamer = (token: string | null) => {
-  return httpService.get("/gamer/get", {
-    headers: {
-      "Content-Type": "application/json",
-      token: token,
-    },
-  });
+  return httpService.get("/gamer/get");
 };
 
 type editData = {
