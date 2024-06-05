@@ -29,8 +29,8 @@ router.get("/getList", withAuth, async (req: PlayTogetherhubRequest, res) => {
   res.status(200).json({ data: games });
 });
 
-router.get("/match/:gamerId", withAuth, async (req, res) => {
-  const { gamerId } = req.params;
+router.get("/match", withAuth, async (req: PlayTogetherhubRequest, res) => {
+  const gamerId = req.session.gamerId;
 
   const match = await GamesAdapter.match(parseInt(gamerId));
 

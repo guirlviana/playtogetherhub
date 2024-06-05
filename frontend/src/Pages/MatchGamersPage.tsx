@@ -13,7 +13,6 @@ type Gamer = {
   games: { externalCode: number }[];
 };
 
-const gamerIdMocked = 17;
 
 function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
@@ -24,7 +23,7 @@ function MatchGamersPage() {
 
   const matchGamers = async () => {
     const token = localStorage.getItem("token");
-    matchFellowGamers(gamerIdMocked, token).then(({ data }) => {
+    matchFellowGamers(token).then(({ data }) => {
       const gamersMatched = data.data;
       if (gamersMatched.length > 0) {
         setGamers(gamersMatched);
