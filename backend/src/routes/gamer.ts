@@ -41,8 +41,8 @@ router.put("/update", withAuth, async (req: PlayTogetherhubRequest, res) => {
   res.status(200).json({ message: "updated successfully", data: gamerUpdated });
 });
 
-router.delete("/delete/:id", withAuth, async (req, res) => {
-  const gamerId = parseInt(req.params.id);
+router.delete("/delete", withAuth, async (req: PlayTogetherhubRequest, res) => {
+  const gamerId = req.session.gamerId;
 
   await GamerAdapter.remove(gamerId);
 
