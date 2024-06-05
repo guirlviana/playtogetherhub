@@ -31,11 +31,6 @@ export const createOrUpdateGames = (
   );
 };
 
-export const getGamerList = (token: string | null) => {
-  return httpService.get("/games/getList", {
-    headers: {
-      "Content-Type": "application/json",
-      token: token,
-    },
-  });
+export const getGamerList = () => {
+  return httpService.get("/games/getList");
 };

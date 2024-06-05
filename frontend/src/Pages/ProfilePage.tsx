@@ -16,7 +16,6 @@ type Fields = { name: string; gamerTag: string };
 const EMPTY_FIELD_VALUE = "";
 
 function ProfilePage(props: Props) {
-  const token = localStorage.getItem("token");
   const [editGamerModalIsOpen, setEditgamerModalIsOpen] =
     useState<boolean>(false);
   const [gamerList, setGamerlist] = useState<Game[]>([]);
@@ -27,11 +26,11 @@ function ProfilePage(props: Props) {
   });
 
   useEffect(() => {
-    getGamer(token).then(({ data }) => setProfile(data.data));
+    getGamer().then(({ data }) => setProfile(data.data));
 
     const fillGamesLists = async () => {
       let gamerList: Game[] = [];
-      await getGamerList(token).then(({ data }) => {
+      await getGamerList().then(({ data }) => {
         gamerList = data.data;
         setGamerlist(gamerList);
       });
@@ -51,7 +50,7 @@ function ProfilePage(props: Props) {
     };
 
     fillGamesLists();
-  }, [token]);
+  }, []);
 
   const appendGameToGamesGallery = (externalCode: number) => {
     if (gamerList.length === 1) {
