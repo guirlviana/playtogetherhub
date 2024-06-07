@@ -105,7 +105,7 @@ function ProfilePage(props: Props) {
           </button>
           <div className="bg-white rounded-full  relative">
             <img
-              src="./user-logo.webp"
+              src="https://mc-heads.net/avatar/0385"
               width={250}
               height={250}
               alt="gamer logo"
