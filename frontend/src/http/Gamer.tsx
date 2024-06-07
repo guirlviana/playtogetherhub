@@ -29,7 +29,7 @@ export const login = (gamerTag: string, password: string) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("token");
+  localStorage.setItem("token", "");
 };
 
 export const getAllGamers = () => {
