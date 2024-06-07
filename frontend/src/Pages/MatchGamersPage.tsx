@@ -15,16 +15,14 @@ type Gamer = {
 
 function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
-  const [viewAll, setViewAll] = useState(true);
+  const [matchGamers, setMatchGamers] = useState(true);
 
   useEffect(() => {
     getAllGamers().then(({ data }) => setGamers(data.data));
   }, []);
 
-  const matchGamers = async () => {
-    if (viewAll) {
-      getAllGamers().then(({ data }) => setGamers(data.data));
-    } else {
+  const handleMatchGamers = async () => {
+    if (matchGamers) {
       matchFellowGamers().then(({ data }) => {
         const gamersMatched = data.data;
         if (gamersMatched.length > 0) {
@@ -34,9 +32,11 @@ function MatchGamersPage() {
         // TODO: Toast saying that doesnt match gamers
         getAllGamers().then(({ data }) => setGamers(data.data));
       });
+    } else {
+      getAllGamers().then(({ data }) => setGamers(data.data));
     }
 
-    setViewAll((current) => !current);
+    setMatchGamers((current) => !current);
   };
 
   return (
@@ -62,9 +62,9 @@ function MatchGamersPage() {
         <Button
           variant={"default"}
           size={"medium"}
-          onClick={() => matchGamers()}
+          onClick={() => handleMatchGamers()}
         >
-          <p className="text-3xl">{viewAll ? "ALL" : "MATCH"}</p>
+          <p className="text-3xl">{matchGamers ? "MATCH" : "ALL"}</p>
         </Button>
       </Page>
     </div>
