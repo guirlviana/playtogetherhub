@@ -4,10 +4,8 @@ import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import { login } from "../http/Gamer";
-import { useNavigate } from "react-router-dom";
 
 function SignUpPage() {
-  const navigate = useNavigate();
   const [fields, setFieldsValue] = useState({
     gamerTag: "",
     password: "",
@@ -16,7 +14,10 @@ function SignUpPage() {
   const onClickLogIn = () => {
     login(fields.gamerTag, fields.password).then(({ data }) => {
       localStorage.setItem("token", data.token);
-      navigate("/match");
+      const token = localStorage.getItem("token");
+      if (token) {
+        window.location.href = "/match";
+      }
     });
   };
 
