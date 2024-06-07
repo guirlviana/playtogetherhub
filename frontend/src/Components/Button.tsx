@@ -12,12 +12,15 @@ function Button({ children, variant, size, onClick, disabled }: Props) {
   const variants = {
     default: "py-2 px-4 bg-primary hover:bg-primary-700 text-white rounded-lg",
   };
+  const disabledStyle = disabled
+    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+    : "";
   const sizes = {
     small: "w-24 h-12",
     medium: "w-48 h-20",
   };
 
-  const combinedStyles = `${variants[variant]} ${sizes[size]}`;
+  const combinedStyles = `${variants[variant]} ${sizes[size]} ${disabledStyle}`;
 
   return (
     <button className={combinedStyles} disabled={disabled} onClick={onClick}>
