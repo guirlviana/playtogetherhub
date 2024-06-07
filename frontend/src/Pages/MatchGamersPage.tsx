@@ -16,12 +16,14 @@ type Gamer = {
 function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
   const [matchGamers, setMatchGamers] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     getAllGamers().then(({ data }) => setGamers(data.data));
   }, []);
 
   const handleMatchGamers = async () => {
+    setIsLoading((current) => !current);
     if (matchGamers) {
       matchFellowGamers().then(({ data }) => {
         const gamersMatched = data.data;
@@ -36,7 +38,10 @@ function MatchGamersPage() {
       getAllGamers().then(({ data }) => setGamers(data.data));
     }
 
-    setMatchGamers((current) => !current);
+    setTimeout(() => {
+      setMatchGamers((current) => !current);
+      setIsLoading((current) => !current);
+    }, 2000);
   };
 
   return (
@@ -63,6 +68,7 @@ function MatchGamersPage() {
           variant={"default"}
           size={"medium"}
           onClick={() => handleMatchGamers()}
+          disabled={isLoading}
         >
           <p className="text-3xl">{matchGamers ? "MATCH" : "ALL"}</p>
         </Button>
