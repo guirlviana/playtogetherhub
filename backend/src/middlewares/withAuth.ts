@@ -7,7 +7,7 @@ export function withAuth(
   next: () => void
 ) {
   const { token } = req.headers;
-  if (!token) return res.status(401).json({ token: "No token provided" });
+  if (!token) return res.status(403).json({ token: "No token provided" });
 
   const secret = String(process.env.LOGIN_SECRET_KEY);
 
@@ -16,6 +16,6 @@ export function withAuth(
     req.session = { gamerId: parseInt(decoded.gamerId) };
     next();
   } catch {
-    return res.status(401).json({ token: "Invalid token provided" });
+    return res.status(403).json({ token: "Invalid token provided" });
   }
 }

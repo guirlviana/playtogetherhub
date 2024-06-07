@@ -16,7 +16,7 @@ httpService.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response && error.response.status === 401) {
+    if (error.response && error.response.status === 403) {
       logout();
       window.location.href = "/login";
     }
