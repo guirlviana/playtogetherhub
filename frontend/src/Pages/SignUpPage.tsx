@@ -43,8 +43,8 @@ function SignUpPage() {
         <Title customStyle="pb-10">PlayTogether hub</Title>
         <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
           <InputWithLabel
-            label={"Name"}
-            name={"name-input"}
+            label="Name"
+            name="name-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, name: v }))
             }
@@ -53,8 +53,8 @@ function SignUpPage() {
             required
           />
           <InputWithLabel
-            label={"Gamertag"}
-            name={"gamertag-input"}
+            label="Gamertag"
+            name="gamertag-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, gamerTag: v }))
             }
@@ -63,8 +63,8 @@ function SignUpPage() {
             required
           />
           <InputWithLabel
-            label={"Password"}
-            name={"password-input"}
+            label="Password"
+            name="password-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, password: v }))
             }
