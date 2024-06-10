@@ -69,7 +69,7 @@ function SignUpPage() {
             label="* Name"
             name="name-input"
             onChange={(v) =>
-              setFieldsValue((prevState) => ({ ...prevState, name: v }))
+              setFieldsValue((prevState: any) => ({ ...prevState, name: v }))
             }
             value={fields.name}
             direction="col"
@@ -79,7 +79,10 @@ function SignUpPage() {
             label="* Gamertag"
             name="gamertag-input"
             onChange={(v) =>
-              setFieldsValue((prevState) => ({ ...prevState, gamerTag: v }))
+              setFieldsValue((prevState: any) => ({
+                ...prevState,
+                gamerTag: v,
+              }))
             }
             value={fields.gamerTag}
             direction="col"
@@ -89,7 +92,10 @@ function SignUpPage() {
             label="* Password"
             name="password-input"
             onChange={(v) =>
-              setFieldsValue((prevState) => ({ ...prevState, password: v }))
+              setFieldsValue((prevState: any) => ({
+                ...prevState,
+                password: v,
+              }))
             }
             value={fields.password}
             direction="col"
@@ -101,7 +107,7 @@ function SignUpPage() {
             label="* Your most favorite game"
             direction="col"
             onChange={(v) =>
-              setFieldsValue((prevState) => ({
+              setFieldsValue((prevState: any) => ({
                 ...prevState,
                 favoriteGameId: v,
               }))
