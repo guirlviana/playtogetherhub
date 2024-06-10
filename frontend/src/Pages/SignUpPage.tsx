@@ -28,6 +28,7 @@ const validateFields = (fields: SignUpFields) => {
 
 function SignUpPage() {
   const navigate = useNavigate();
+  const [error, setError] = useState("");
   const [availableGames, setAvailableGames] = useState([]);
   const [fields, setFieldsValue] = useState<SignUpFields>({
     name: "",
@@ -49,10 +50,14 @@ function SignUpPage() {
   }, []);
 
   const onClickSignUp = () => {
-    createGamer({
-      ...fields,
-      favoriteGameId: parseInt(fields.favoriteGameId),
-    }).then(() => navigate("/login"));
+    validateFields(fields)
+      .then(() => {
+        createGamer({
+          ...fields,
+          favoriteGameId: parseInt(fields.favoriteGameId),
+        }).then(() => navigate("/login"));
+      })
+      .catch(({ message }) => setError(message));
   };
 
   return (
