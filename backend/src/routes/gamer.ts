@@ -23,6 +23,11 @@ router.post("/create", async (req, res) => {
   const { gamerTag, name, password, favoriteGameId } = req.body;
 
   const gamer = await GamerAdapter.create(gamerTag, name, password);
+  if (!gamer) {
+    res
+      .status(409)
+      .json({ message: `gamerTag: ${gamerTag} in use, try another!` });
+  }
   await GamesAdapter.createOrUpdate(gamer.id, [
     { externalCode: favoriteGameId, gamerId: gamer.id },
   ]);
