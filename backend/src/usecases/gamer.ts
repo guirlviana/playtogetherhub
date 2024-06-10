@@ -5,6 +5,11 @@ import bcrypt from "bcrypt";
 async function create(gamerTag: string, name: string, password: string) {
   const hash = await bcrypt.hash(password, 10);
 
+  const gamersWithSameGamerTag = await orm.gamer.count({
+    where: { gamerTag: gamerTag },
+  });
+  if (gamersWithSameGamerTag) return false;
+
   const newGamer = await orm.gamer.create({
     data: {
       gamerTag: gamerTag,
