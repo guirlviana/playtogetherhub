@@ -26,7 +26,7 @@ router.post("/create", async (req, res) => {
   if (!gamer) {
     res
       .status(409)
-      .json({ message: `gamerTag: ${gamerTag} in use, try another!` });
+      .json({ message: `gamerTag: "${gamerTag}" in use, try another!` });
     return;
   }
 
