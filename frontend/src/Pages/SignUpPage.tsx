@@ -56,7 +56,13 @@ function SignUpPage() {
         createGamer({
           ...fields,
           favoriteGameId: parseInt(fields.favoriteGameId),
-        }).then(() => navigate("/login"));
+        })
+          .then(() => navigate("/login"))
+          .catch(({ response }) => {
+            if (response.status === 409) {
+              setError(response.data.message);
+            }
+          });
       })
       .catch(({ message }) => setError(message));
   };
@@ -106,7 +112,7 @@ function SignUpPage() {
           />
           <Select
             name="favorite-game"
-            label="* Your most favorite game"
+            label="Your most favorite game"
             direction="col"
             onChange={(v) =>
               setFieldsValue((prevState: any) => ({
