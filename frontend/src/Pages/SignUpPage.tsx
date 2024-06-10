@@ -18,10 +18,10 @@ type SignUpFields = {
 
 const validateFields = (fields: SignUpFields) => {
   return new Promise<void>((resolve, reject) => {
-    const isSomeFieldEmpty = Object.values(fields).find(
-      (value) => !Boolean(value)
+    const isAllFieldsFilled = Object.values(fields).every(
+      (value) => value.trim() !== ""
     );
-    if (isSomeFieldEmpty) reject({ message: "Required fields not filled" });
+    if (!isAllFieldsFilled) reject({ message: "Required fields not filled" });
 
     resolve();
   });
