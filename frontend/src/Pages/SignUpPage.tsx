@@ -8,10 +8,28 @@ import { searchGames } from "../http/Games";
 import { createGamer } from "../http/Gamer";
 import { useNavigate } from "react-router-dom";
 
+type SignUpFields = {
+  name: "";
+  gamerTag: "";
+  password: "";
+  favoriteGameId: "";
+};
+
+const validateFields = (fields: SignUpFields) => {
+  return new Promise<void>((resolve, reject) => {
+    const isSomeFieldEmpty = Object.values(fields).find(
+      (value) => !Boolean(value)
+    );
+    if (isSomeFieldEmpty) reject({ message: "Required fields not filled" });
+
+    resolve();
+  });
+};
+
 function SignUpPage() {
   const navigate = useNavigate();
   const [availableGames, setAvailableGames] = useState([]);
-  const [fields, setFieldsValue] = useState({
+  const [fields, setFieldsValue] = useState<SignUpFields>({
     name: "",
     gamerTag: "",
     password: "",
