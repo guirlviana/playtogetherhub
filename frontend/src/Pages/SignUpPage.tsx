@@ -62,6 +62,7 @@ function SignUpPage() {
         <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
           <InputWithLabel
             label="Name"
+            label="* Name"
             name="name-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, name: v }))
@@ -71,7 +72,7 @@ function SignUpPage() {
             required
           />
           <InputWithLabel
-            label="Gamertag"
+            label="* Gamertag"
             name="gamertag-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, gamerTag: v }))
@@ -81,7 +82,7 @@ function SignUpPage() {
             required
           />
           <InputWithLabel
-            label="Password"
+            label="* Password"
             name="password-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, password: v }))
@@ -93,7 +94,7 @@ function SignUpPage() {
           />
           <Select
             name="favorite-game"
-            label="Your most favorite game"
+            label="* Your most favorite game"
             direction="col"
             onChange={(v) =>
               setFieldsValue((prevState) => ({
