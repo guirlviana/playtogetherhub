@@ -4,6 +4,7 @@ import Title from "../Components/Title";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import { login } from "../http/Gamer";
+import Error from "../Components/Error";
 
 function SignUpPage() {
   const [fields, setFieldsValue] = useState({
@@ -31,11 +32,7 @@ function SignUpPage() {
       <div className="flex flex-col h-full w-full align-center items-center">
         <Title customStyle="pb-10">PlayTogether hub</Title>
         <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
-          {error && (
-            <div className="border-l-4 border-red-700 bg-red-500 rounded-md">
-              <p className="text-white p-2">{error}</p>
-            </div>
-          )}
+          {error && <Error error={error} />}
           <InputWithLabel
             label={"Gamertag"}
             name={"gamertag-input"}
