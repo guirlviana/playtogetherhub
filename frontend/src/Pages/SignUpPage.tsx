@@ -7,6 +7,7 @@ import Select from "../Components/Select";
 import { searchGames } from "../http/Games";
 import { createGamer } from "../http/Gamer";
 import { useNavigate } from "react-router-dom";
+import Error from "../Components/Error";
 
 type SignUpFields = {
   name: "";
@@ -65,6 +66,7 @@ function SignUpPage() {
       <div className="flex flex-col h-full w-full align-center items-center">
         <Title customStyle="pb-10">PlayTogether hub</Title>
         <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
+          {error && <Error error={error} />}
           <InputWithLabel
             label="* Name"
             name="name-input"
