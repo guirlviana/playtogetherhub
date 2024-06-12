@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
+import { validateFields } from "../utils/validateFields";
+import Error from "./Error";
 
 type EditableFields = { name: string; gamerTag: string };
 
@@ -12,6 +14,13 @@ type Props = {
 
 function ModalEditGamer(props: Props) {
   const [fields, setFieldsValue] = useState<EditableFields>(props.gamerFields);
+  const [error, setError] = useState("");
+
+  const handleOnSave = () => {
+    validateFields(fields)
+      .then(() => props.onSave(fields))
+      .catch(({ message }) => setError(message));
+  };
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
@@ -23,6 +32,7 @@ function ModalEditGamer(props: Props) {
           >
             ✕
           </span>
+          {error && <Error error={error} />}
           <InputWithLabel
             label={"Name"}
             name={"name-input"}
@@ -48,7 +58,7 @@ function ModalEditGamer(props: Props) {
             <Button
               variant="default"
               size="small"
-              onClick={() => props.onSave(fields)}
+              onClick={() => handleOnSave()}
             >
               Save
             </Button>
