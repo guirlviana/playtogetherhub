@@ -26,7 +26,7 @@ function GamerOverviewItem(props: Props) {
       </div>
       <div className="flex grow flex-col justify-center">
         <h5>{props.name}</h5>
-        <p>@{props.gamerTag}</p>
+        <p className="text-gray-600 text-sm">@{props.gamerTag}</p>
       </div>
       <div className="flex gap-1">
         {props.games.map((game) => (
