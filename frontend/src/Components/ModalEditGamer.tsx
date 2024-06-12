@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import { validateFields } from "../utils/validateFields";
