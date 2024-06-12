@@ -5,6 +5,7 @@ import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import { login } from "../http/Gamer";
 import Error from "../Components/Error";
+import { validateFields } from "../utils/validateFields";
 
 function SignUpPage() {
   const [fields, setFieldsValue] = useState({
@@ -14,17 +15,21 @@ function SignUpPage() {
   const [error, setError] = useState<string>("");
 
   const onClickLogIn = () => {
-    login(fields.gamerTag, fields.password)
-      .then(({ data }) => {
-        localStorage.setItem("token", data.token);
-        const token = localStorage.getItem("token");
-        if (token) {
-          window.location.href = "/match";
-        }
+    validateFields(fields)
+      .then(() => {
+        login(fields.gamerTag, fields.password)
+          .then(({ data }) => {
+            localStorage.setItem("token", data.token);
+            const token = localStorage.getItem("token");
+            if (token) {
+              window.location.href = "/match";
+            }
+          })
+          .catch(() => {
+            setError("Login Invalid");
+          });
       })
-      .catch(() => {
-        setError("Login Invalid");
-      });
+      .catch(({ message }) => setError(message));
   };
 
   return (
