@@ -55,7 +55,6 @@ function ModalEditGamer(props: Props) {
           </div>
         </div>
       </div>
-      {/* <div className="absolute inset-0"></div> */}
     </div>
   );
 }
