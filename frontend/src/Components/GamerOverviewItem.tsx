@@ -21,14 +21,14 @@ function GamerOverviewItem(props: Props) {
 
   return (
     <li className={`flex gap-3 p-2 ${bgColor}`}>
-      <div className="bg-white rounded-full h-min flex">
+      <div className="bg-white rounded-full h-min flex self-center">
         <img src={choosedImageIcon} width={50} height={50} alt="gamer logo" />
       </div>
       <div className="flex grow flex-col justify-center">
         <h5>{props.name}</h5>
         <p className="text-gray-600 text-sm">@{props.gamerTag}</p>
       </div>
-      <div className="flex gap-1">
+      <div className="flex gap-1 overflow-auto">
         {props.games.map((game) => (
           <img
             key={game.externalCode}
