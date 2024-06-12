@@ -38,10 +38,8 @@ function MatchGamersPage() {
       getAllGamers().then(({ data }) => setGamers(data.data));
     }
 
-    setTimeout(() => {
-      setMatchGamers((current) => !current);
-      setIsLoading((current) => !current);
-    }, 2000);
+    setMatchGamers((current) => !current);
+    setIsLoading((current) => !current);
   };
 
   return (
