@@ -47,7 +47,7 @@ function GamerProfile() {
             </a>
             <button
               onClick={onClickLogout}
-              className="text-red-600 hover:bg-red-600 hover:rounded-b-md hover:text-white pr-5 p-1 text-1xl border-t"
+              className="text-red-600 hover:bg-red-600 hover:rounded-b-md hover:text-white pr-5 p-1 text-1xl border-t text-left"
             >
               Log out
             </button>
