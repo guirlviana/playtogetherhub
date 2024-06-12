@@ -23,6 +23,8 @@ const validateFields = (fields: SignUpFields) => {
     );
     if (!isAllFieldsFilled) reject({ message: "Required fields not filled" });
 
+    if(fields.gamerTag.length > 20) reject({message: "GamerTag maximum 20 characters exceeded"})
+
     resolve();
   });
 };
