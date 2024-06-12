@@ -1,8 +1,8 @@
 type Fields = {
-  name: "";
-  gamerTag: "";
-  password?: "";
-  favoriteGameId?: "";
+  name: string;
+  gamerTag: string;
+  password?: string;
+  favoriteGameId?: string;
 };
 
 export const validateFields = (fields: Fields) => {
