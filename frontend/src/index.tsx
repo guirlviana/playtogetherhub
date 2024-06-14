@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from "./Pages/HomePage";
 import SignUpPage from "./Pages/SignUpPage";
+import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import MatchGamersPage from "./Pages/MatchGamersPage";
 import ProfilePage from "./Pages/ProfilePage";
