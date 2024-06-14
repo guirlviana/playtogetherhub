@@ -7,7 +7,7 @@ import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
 import MatchGamersPage from "./Pages/MatchGamersPage";
 import ProfilePage from "./Pages/ProfilePage";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./Pages/Home";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
