@@ -25,7 +25,7 @@ function ModalEditGamer(props: Props) {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
       <div className="flex flex-col h-full w-full align-center items-center justify-around">
-        <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-1/4 xl:w-1/4">
+        <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-2/4 xl:w-1/4 w-3/4">
           <span
             onClick={() => props.onCloseModal()}
             className="flex cursor-pointer self-end"

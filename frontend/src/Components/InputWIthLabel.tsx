@@ -25,7 +25,7 @@ function InputWithLabel(props: Props) {
         value={props.value}
         required={props.required}
         type={props?.type ?? "text"}
-        className="p-1 rounded-xl bg-white"
+        className="p-2 rounded-xl bg-white"
       />
     </div>
   );
