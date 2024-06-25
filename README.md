@@ -14,3 +14,13 @@
 <p align="center">
   <img width="485" alt="image" src="https://github.com/guirlviana/helpinvestor/assets/65058505/b97911dd-1603-41d9-8938-d52cfd5258bd">
 </p>
+
+<h2 id="technologies">💻 Technologies</h2>
+
+| Backend    | Frontend |
+| -------- | ------- |
+| Node.js  | Typescript    |
+| Express.js | React.js     |
+| Typescript    | Tailwindcss    |
+| PostgresSQL | - |
+| Docker | Docker
