@@ -1,31 +1,27 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-    ports:
-      - "3001:3001"
-
-    depends_on:
-      - database
-
-  database:
+  db:
     image: postgres:14
-    restart: always
-    ports:
-      - "5555:5432"
-
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: pthdb
-
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/pthdb
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
 
 volumes:
-  postgres_data:
-    driver: local
+  db-data:
