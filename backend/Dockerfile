@@ -8,7 +8,8 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build && npm run migrate
+RUN npm run build
+RUN npm run migrate
 
 EXPOSE 3001
 
