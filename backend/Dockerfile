@@ -10,6 +10,6 @@ COPY . .
 
 RUN npm run build && npm run migrate
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD ["npm", "start"]
