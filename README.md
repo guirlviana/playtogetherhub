@@ -2,9 +2,8 @@
 
 <p align="center">
  <a href="#technologies">Technologies</a> • 
-<a href="#architecture">Architecture</a> •
  <a href="#started">Getting Started</a> • 
- <a href="#future">Features, suggestions and the future</a> •
+ <a href="#future">Roadmap</a> •
 </p>
 
 <p align="center">
