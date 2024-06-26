@@ -23,3 +23,13 @@
 | Typescript    | Tailwindcss    |
 | PostgresSQL | - |
 | Docker | Docker
+
+
+<h2 id="future">🛣️ Roadmap</h2>
+
+| Feature | Status |
+| ------- | ------- | 
+| Gamer Page | 🕙 | 
+| Games multi-select register  | 🕙 | 
+| Gamer select/filter by platform  | 🕙 | 
+| Gamer icons  | 🕙 | 
