@@ -1,5 +1,7 @@
 <h1 align="center" style="font-weight: bold;">PlayTogether hub 🎮🧑‍🤝‍🧑</h1>
 
+<h3 align="center" style="font-weight: bold;">Access now 👉 <a target="_blank" href="https://playtogetherhub.vercel.app/">PlayTogether hub</a></h3>
+
 <p align="center">
  <a href="#technologies">Technologies</a> • 
  <a href="#started">Getting Started</a> • 
