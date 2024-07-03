@@ -42,6 +42,8 @@
 
  PlayTogether hub is divided in frontend and backend folder.
 
+ You need to have Node and npm install, chatGPT can help you with the installation.
+
  For frontend it is required to have backend running!
 
 Go to backend folder and install dependencies
