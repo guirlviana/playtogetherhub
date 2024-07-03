@@ -25,6 +25,7 @@
 | Typescript    | Tailwindcss    |
 | PostgresSQL | - |
 | Docker | Docker
+| AWS | Vercel
 
 
 <h2 id="future">🛣️ Roadmap</h2>
