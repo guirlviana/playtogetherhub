@@ -38,7 +38,48 @@
 - Docker
 - Vercel
 
+ <h2 id="started">:footprints: First steps</h2>
 
+ PlayTogether hub is divided in frontend and backend folder.
+
+ For frontend it is required to have backend running!
+
+Go to backend folder and install dependencies
+
+ ```
+ cd backend && npm install
+```
+
+We are running postgres using docker, check how to install docker here: [https://docs.docker.com/engine/install/](installation)
+
+
+create a `.env` file in root of backend folder with these variables
+```
+
+LOGIN_SECRET_KEY='playtogetherhubsecrekey'
+
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/pthdb"
+
+IS_PRODUCTION=0
+```
+
+Now start the database
+
+```
+docker-compose up -d db
+```
+
+Dependencies installed, database running, now let's running the migrations
+
+ ```
+ npm run migrate
+```
+
+And final start the api 
+
+ ```
+npm run start-dev
+ ```
  
  <h2 id="future">🛣️ Roadmap</h2>
  
