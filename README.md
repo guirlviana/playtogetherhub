@@ -56,7 +56,7 @@ We are running postgres using docker, check how to install docker here: [https:/
 create a `.env` file in root of backend folder with these variables
 ```
 
-LOGIN_SECRET_KEY='playtogetherhubsecrekey'
+LOGIN_SECRET_KEY='playtogetherhubsecrekey' // you can change it
 
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/pthdb"
 
