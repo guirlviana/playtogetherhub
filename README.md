@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: space-between;">
+
   <h1 align="center" style="font-weight: bold;">PlayTogether hub 🎮🧑‍🤝‍🧑</h1>
  
  <h3 align="center" style="font-weight: bold;">:point_down: Access now :point_down:</h3>
@@ -19,16 +19,26 @@
  </p>
  
  <h2 id="technologies">💻 Technologies</h2>
- 
- | Backend    | Frontend |
- | -------- | ------- |
- | Node.js  | Typescript    |
- | Express.js | React.js     |
- | Typescript    | Tailwindcss    |
- | PostgresSQL | - |
- | Docker | Docker
- | AWS | Vercel
- 
+
+
+### Backend
+
+- Node.js
+- Express.js
+- Typescript
+- PostgreSQL
+- Docker
+- AWS
+
+### Frontend
+
+- Typescript
+- React.js
+- Tailwind CSS
+- Docker
+- Vercel
+
+
  
  <h2 id="future">🛣️ Roadmap</h2>
  
@@ -38,4 +48,4 @@
  | Games multi-select register  | 🕙 | 
  | Gamer select/filter by platform  | 🕙 | 
  | Gamer icons  | 🕙 | 
-</div>
+
