@@ -1,7 +1,7 @@
 import axios from "axios";
 import { logout } from "./Gamer";
 
-const BASE_URL = "https://playtogetherhub.onrender.com";
+const BASE_URL = "https://playtogetherhubapi.gvianadev.com";
 
 export const httpService = axios.create({
   baseURL: BASE_URL,
