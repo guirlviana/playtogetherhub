@@ -6,15 +6,14 @@ type Props = {
   value: string;
   type?: string;
   required?: boolean;
+  disabled?: boolean;
   direction?: "col" | "row";
   onChange: (value: string) => void;
 };
 
 function InputWithLabel(props: Props) {
   return (
-    <div
-      className={`flex gap-1 ${props.direction === "col" && "flex-col"} `}
-    >
+    <div className={`flex gap-1 ${props.direction === "col" && "flex-col"} `}>
       <label htmlFor={props.name}>
         {props.required && "* "}
         {props.label}
@@ -22,6 +21,7 @@ function InputWithLabel(props: Props) {
       <input
         name={props.name}
         onChange={(e) => props.onChange(e.target.value)}
+        disabled={props.disabled}
         value={props.value}
         required={props.required}
         type={props?.type ?? "text"}
