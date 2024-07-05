@@ -13,8 +13,10 @@ function SignUpPage() {
     password: "",
   });
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const onClickLogIn = () => {
+    setLoading(true);
     validateFields(fields)
       .then(() => {
         login(fields.gamerTag, fields.password)
@@ -29,7 +31,8 @@ function SignUpPage() {
             setError("Login Invalid");
           });
       })
-      .catch(({ message }) => setError(message));
+      .catch(({ message }) => setError(message))
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -46,6 +49,7 @@ function SignUpPage() {
             }
             value={fields.gamerTag}
             direction="col"
+            disabled={loading}
             required
           />
           <InputWithLabel
@@ -57,15 +61,17 @@ function SignUpPage() {
             value={fields.password}
             direction="col"
             type="password"
+            disabled={loading}
             required
           />
           <div className="self-center">
             <Button
               variant="default"
               size="small"
+              disabled={loading}
               onClick={() => onClickLogIn()}
             >
-              Login
+              <p>{loading ? "Loading" : "Login"}</p>
             </Button>
           </div>
         </div>
