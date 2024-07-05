@@ -15,6 +15,7 @@ type Gamer = {
 
 function MatchGamersPage() {
   const [gamers, setGamers] = useState<Gamer[]>([]);
+  const [error, setError] = useState<string>("");
   const [matchGamers, setMatchGamers] = useState(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -23,6 +24,7 @@ function MatchGamersPage() {
   }, []);
 
   const handleMatchGamers = async () => {
+    setError("");
     setIsLoading((current) => !current);
     if (matchGamers) {
       matchFellowGamers().then(({ data }) => {
@@ -31,8 +33,8 @@ function MatchGamersPage() {
           setGamers(gamersMatched);
           return;
         }
-        // TODO: Toast saying that doesnt match gamers
-        getAllGamers().then(({ data }) => setGamers(data.data));
+
+        setError("Sorry, your game list doesn't match any fellow gamer 😔");
       });
     } else {
       getAllGamers().then(({ data }) => setGamers(data.data));
@@ -49,19 +51,25 @@ function MatchGamersPage() {
         <p className="text-secondary-900 lg:text-4xl md:text-4xl, sm:text-3xl text-3xl">
           Let's play together!
         </p>
-        <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 overflow-auto">
-          <ul className="w-full">
-            {gamers.map((gamer, index) => (
-              <GamerOverviewItem
-                key={gamer.id}
-                type={index % 2 === 0 ? "primary" : "secondary"}
-                gamerTag={gamer.gamerTag}
-                name={gamer.name}
-                games={gamer.games ?? []}
-              />
-            ))}
-          </ul>
-        </div>
+        {error ? (
+          <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 p-5">
+            <p className="text-primary-400 font-bold">{error}</p>
+          </div>
+        ) : (
+          <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 overflow-auto">
+            <ul className="w-full">
+              {gamers.map((gamer, index) => (
+                <GamerOverviewItem
+                  key={gamer.id}
+                  type={index % 2 === 0 ? "primary" : "secondary"}
+                  gamerTag={gamer.gamerTag}
+                  name={gamer.name}
+                  games={gamer.games ?? []}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
         <Button
           variant={"default"}
           size={"medium"}
