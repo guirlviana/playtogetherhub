@@ -114,6 +114,7 @@ function SignUpPage() {
             disabled={!availableGames.length}
             required
           />
+          <p className="text-gray-400 text-sm">You can add more favorite games in your Profile</p>
           <div className="self-center">
             <Button
               variant="default"
