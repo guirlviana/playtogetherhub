@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import Page from "../Components/Page";
 import GamerOverviewItem from "../Components/GamerOverviewItem";
 import Button from "../Components/Button";
+import Loader from "../Components/Loader";
 import { getAllGamers } from "../http/Gamer";
 import { matchFellowGamers } from "../http/Games";
 
@@ -27,21 +28,24 @@ function MatchGamersPage() {
     setError("");
     setIsLoading((current) => !current);
     if (matchGamers) {
-      matchFellowGamers().then(({ data }) => {
-        const gamersMatched = data.data;
-        if (gamersMatched.length > 0) {
-          setGamers(gamersMatched);
-          return;
-        }
+      matchFellowGamers()
+        .then(({ data }) => {
+          const gamersMatched = data.data;
+          if (gamersMatched.length > 0) {
+            setGamers(gamersMatched);
+            return;
+          }
 
-        setError("Sorry, your game list doesn't match any fellow gamer 😔");
-      });
+          setError("Sorry, your game list doesn't match any fellow gamer 😔");
+        })
+        .finally(() => setIsLoading((current) => !current));
     } else {
-      getAllGamers().then(({ data }) => setGamers(data.data));
+      getAllGamers()
+        .then(({ data }) => setGamers(data.data))
+        .finally(() => setIsLoading((current) => !current));
     }
 
     setMatchGamers((current) => !current);
-    setIsLoading((current) => !current);
   };
 
   return (
@@ -56,19 +60,25 @@ function MatchGamersPage() {
             <p className="text-primary-400 font-bold">{error}</p>
           </div>
         ) : (
-          <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 overflow-auto">
-            <ul className="w-full">
-              {gamers.map((gamer, index) => (
-                <GamerOverviewItem
-                  key={gamer.id}
-                  type={index % 2 === 0 ? "primary" : "secondary"}
-                  gamerTag={gamer.gamerTag}
-                  name={gamer.name}
-                  games={gamer.games ?? []}
-                />
-              ))}
-            </ul>
-          </div>
+          <>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 overflow-auto">
+                <ul className="w-full">
+                  {gamers.map((gamer, index) => (
+                    <GamerOverviewItem
+                      key={gamer.id}
+                      type={index % 2 === 0 ? "primary" : "secondary"}
+                      gamerTag={gamer.gamerTag}
+                      name={gamer.name}
+                      games={gamer.games ?? []}
+                    />
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
         )}
         <Button
           variant={"default"}
@@ -76,7 +86,11 @@ function MatchGamersPage() {
           onClick={() => handleMatchGamers()}
           disabled={isLoading}
         >
-          <p className="text-3xl">{matchGamers ? "MATCH" : "ALL"}</p>
+          {isLoading ? (
+            <p className="text-3xl">WAIT</p>
+          ) : (
+            <p className="text-3xl">{matchGamers ? "MATCH" : "ALL"}</p>
+          )}
         </Button>
       </Page>
     </div>
