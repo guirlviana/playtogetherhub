@@ -24,9 +24,12 @@ function MatchGamersPage() {
     getAllGamers().then(({ data }) => setGamers(data.data));
   }, []);
 
+  const setIsNotLoadingWithDelay = () =>
+    setTimeout(() => setIsLoading(false), 4000);
+
   const handleMatchGamers = async () => {
     setError("");
-    setIsLoading((current) => !current);
+    setIsLoading(true);
     if (matchGamers) {
       matchFellowGamers()
         .then(({ data }) => {
@@ -38,11 +41,11 @@ function MatchGamersPage() {
 
           setError("Sorry, your game list doesn't match any fellow gamer 😔");
         })
-        .finally(() => setIsLoading((current) => !current));
+        .finally(() => setIsNotLoadingWithDelay());
     } else {
       getAllGamers()
         .then(({ data }) => setGamers(data.data))
-        .finally(() => setIsLoading((current) => !current));
+        .finally(() => setIsNotLoadingWithDelay());
     }
 
     setMatchGamers((current) => !current);
