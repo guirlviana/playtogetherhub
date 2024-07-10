@@ -16,7 +16,7 @@ const imageIcons = [
 ];
 
 function GamerOverviewItem(props: Props) {
-  const bgColor = props.type === "primary" ? "bg-white-100" : "bg-gray-50";
+  const bgColor = props.type === "primary" ? "bg-gray-100" : "bg-white-200";
   const choosedImageIcon = imageIcons[Math.floor(Math.random() * 5)];
 
   return (
