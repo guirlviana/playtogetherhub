@@ -88,7 +88,5 @@ npm run start-dev
  | Feature | Status |
  | ------- | ------- | 
  | Gamer Page | 🕙 | 
- | Games multi-select register  | 🕙 | 
- | Gamer select/filter by platform  | 🕙 | 
  | Gamer icons  | 🕙 | 
 
