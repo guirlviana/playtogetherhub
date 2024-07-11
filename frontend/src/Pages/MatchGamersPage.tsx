@@ -67,7 +67,7 @@ function MatchGamersPage() {
             {isLoading ? (
               <Loader />
             ) : (
-              <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-3/5 overflow-auto">
+              <div className="bg-white rounded-lg max-w-2xl sm:w-2/3 w-full max-h-[70%] overflow-auto">
                 <ul className="w-full">
                   {gamers.map((gamer, index) => (
                     <GamerOverviewItem
