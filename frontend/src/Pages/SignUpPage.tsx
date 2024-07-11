@@ -71,6 +71,7 @@ function SignUpPage() {
           <InputWithLabel
             label="Name"
             name="name-input"
+            disabled={isLoading}
             onChange={(v) =>
               setFieldsValue((prevState: any) => ({ ...prevState, name: v }))
             }
@@ -81,6 +82,7 @@ function SignUpPage() {
           <InputWithLabel
             label="Gamertag"
             name="gamertag-input"
+            disabled={isLoading}
             onChange={(v) =>
               setFieldsValue((prevState: any) => ({
                 ...prevState,
@@ -94,6 +96,7 @@ function SignUpPage() {
           <InputWithLabel
             label="Password"
             name="password-input"
+            disabled={isLoading}
             onChange={(v) =>
               setFieldsValue((prevState: any) => ({
                 ...prevState,
@@ -116,7 +119,7 @@ function SignUpPage() {
               }))
             }
             options={availableGames}
-            disabled={!availableGames.length}
+            disabled={isLoading || !availableGames.length}
             required
           />
           <p className="text-gray-400 text-sm">
