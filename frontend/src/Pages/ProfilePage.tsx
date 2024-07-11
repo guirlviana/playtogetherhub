@@ -166,10 +166,11 @@ function List(props: ListProps) {
           <li
             key={game.externalCode}
             onClick={() => props.onClick(game.externalCode)}
+            className="sm:h-full h-2/4"
           >
             <img
               src={`./${game.externalCode}.png`}
-              className="h-full"
+              className="h-full w-full"
               alt="game logo"
             />
           </li>
