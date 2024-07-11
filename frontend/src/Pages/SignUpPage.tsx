@@ -21,6 +21,7 @@ function SignUpPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [availableGames, setAvailableGames] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [fields, setFieldsValue] = useState<SignUpFields>({
     name: "",
     gamerTag: "",
@@ -41,13 +42,17 @@ function SignUpPage() {
   }, []);
 
   const onClickSignUp = () => {
+    setIsLoading(true);
     validateFields(fields)
       .then(() => {
         createGamer({
           ...fields,
           favoriteGameId: parseInt(fields.favoriteGameId),
         })
-          .then(() => navigate("/login"))
+          .then(() => {
+            setIsLoading(false);
+            navigate("/login");
+          })
           .catch(({ response }) => {
             if (response.status === 409) {
               setError(response.data.message);
@@ -114,12 +119,15 @@ function SignUpPage() {
             disabled={!availableGames.length}
             required
           />
-          <p className="text-gray-400 text-sm">You can add more favorite games in your Profile</p>
+          <p className="text-gray-400 text-sm">
+            You can add more favorite games in your Profile
+          </p>
           <div className="self-center">
             <Button
               variant="default"
               size="small"
               onClick={() => onClickSignUp()}
+              disabled={isLoading}
             >
               Sign up
             </Button>
