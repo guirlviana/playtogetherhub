@@ -21,7 +21,7 @@ function SignUpPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [availableGames, setAvailableGames] = useState([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fields, setFieldsValue] = useState<SignUpFields>({
     name: "",
     gamerTag: "",
