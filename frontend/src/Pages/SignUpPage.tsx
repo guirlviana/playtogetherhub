@@ -59,7 +59,8 @@ function SignUpPage() {
             }
           });
       })
-      .catch(({ message }) => setError(message));
+      .catch(({ message }) => setError(message))
+      .finally(() => setIsLoading(false));
   };
 
   return (
