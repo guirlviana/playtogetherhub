@@ -12,7 +12,7 @@ app.use(express.json());
 const isProduction = parseInt(process.env.IS_PRODUCTION || "1");
 const corsProduction = {
   origin:
-    "https://playtogetherhub.vercel.app",
+    "https://www.playtogetherhub.gvianadev.com",
 };
 
 const corsConfig = isProduction ? corsProduction : {};
