@@ -1,7 +1,14 @@
 import axios from "axios";
 import { logout } from "./Gamer";
 
-const BASE_URL = "https://playtogetherhubapi.gvianadev.com";
+const BACKEND_URL_BY_ENVIROMENT = {
+  development: "http://localhost:3001",
+  test: "http://localhost:3001",
+  production: "https://playtogetherhubapi.gvianadev.com",
+};
+const ENVIROMENT = process.env.NODE_ENV;
+
+const BASE_URL = BACKEND_URL_BY_ENVIROMENT[ENVIROMENT];
 
 export const httpService = axios.create({
   baseURL: BASE_URL,
