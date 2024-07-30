@@ -1,4 +1,4 @@
-function isOnMaintenanceTime() {
+export function isOnMaintenanceTime() {
     const now = new Date();
     const currentHourUTC = now.getUTCHours();
 

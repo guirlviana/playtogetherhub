@@ -9,6 +9,7 @@ import MatchGamersPage from "./Pages/MatchGamersPage";
 import ProfilePage from "./Pages/ProfilePage";
 import HomePage from "./Pages/Home";
 import Maintenance from "./Pages/Maintenance";
+import { isOnMaintenanceTime } from "./utils/maintenanceTime";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -22,9 +23,12 @@ const router = createBrowserRouter([
   { path: "/profile", element: <ProfilePage /> },
 ]);
 
-
 root.render(
   <React.StrictMode>
-    {isOnMaintenanceTime() ? <Maintenance /> : <RouterProvider router={router} /> }
+    {isOnMaintenanceTime() ? (
+      <Maintenance />
+    ) : (
+      <RouterProvider router={router} />
+    )}
   </React.StrictMode>
 );
