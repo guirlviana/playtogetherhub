@@ -8,6 +8,7 @@ import LoginPage from "./Pages/LoginPage";
 import MatchGamersPage from "./Pages/MatchGamersPage";
 import ProfilePage from "./Pages/ProfilePage";
 import HomePage from "./Pages/Home";
+import Maintenance from "./Pages/Maintenance";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,8 +22,18 @@ const router = createBrowserRouter([
   { path: "/profile", element: <ProfilePage /> },
 ]);
 
+
+const startMaintenance = 9;
+const endMaintenance = 22;
+
+const now = new Date();
+const currentHour = now.getHours();
+
+const isAppActive =
+  currentHour >= startMaintenance && currentHour < endMaintenance;
+
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {isAppActive ? <RouterProvider router={router} /> : <Maintenance />}
   </React.StrictMode>
 );
