@@ -23,17 +23,8 @@ const router = createBrowserRouter([
 ]);
 
 
-const startMaintenance = 9;
-const endMaintenance = 22;
-
-const now = new Date();
-const currentHour = now.getHours();
-
-const isAppActive =
-  currentHour >= startMaintenance && currentHour < endMaintenance;
-
 root.render(
   <React.StrictMode>
-    {isAppActive ? <RouterProvider router={router} /> : <Maintenance />}
+    {isOnMaintenanceTime() ? <Maintenance /> : <RouterProvider router={router} /> }
   </React.StrictMode>
 );
