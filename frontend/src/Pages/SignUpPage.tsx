@@ -17,10 +17,15 @@ type SignUpFields = {
   favoriteGameId: "";
 };
 
+type GamesOptions = {
+  name: string;
+  value: string;
+}[];
+
 function SignUpPage() {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
-  const [availableGames, setAvailableGames] = useState([]);
+  const [error, setError] = useState<string>("");
+  const [availableGames, setAvailableGames] = useState<GamesOptions>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fields, setFieldsValue] = useState<SignUpFields>({
     name: "",
