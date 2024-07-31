@@ -8,7 +8,7 @@ import LoginPage from "./Pages/LoginPage";
 import MatchGamersPage from "./Pages/MatchGamersPage";
 import ProfilePage from "./Pages/ProfilePage";
 import HomePage from "./Pages/Home";
-import Maintenance from "./Pages/Maintenance";
+import MaintenancePage from "./Pages/MaintenancePage";
 import { isOnMaintenanceTime } from "./utils/maintenanceTime";
 
 const root = ReactDOM.createRoot(
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 root.render(
   <React.StrictMode>
     {isOnMaintenanceTime() ? (
-      <Maintenance />
+      <MaintenancePage />
     ) : (
       <RouterProvider router={router} />
     )}
