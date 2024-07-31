@@ -40,11 +40,11 @@ export const getGamer = () => {
   return httpService.get("/gamer/get");
 };
 
-type editData = {
+type editableFields = {
   name?: string;
   gamerTag?: string;
 };
 
-export const editGamer = (data: editData) => {
+export const editGamer = (data: editableFields) => {
   return httpService.put("/gamer/update", { ...data });
 };
