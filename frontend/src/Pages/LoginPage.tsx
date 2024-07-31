@@ -47,8 +47,8 @@ function SignUpPage() {
         <div className="flex flex-col gap-4 bg-secondary-100 rounded-xl p-5 md:w-2/4 xl:w-1/4 w-3/4">
           {error && <Error error={error} />}
           <InputWithLabel
-            label={"Gamertag"}
-            name={"gamertag-input"}
+            label="Gamertag"
+            name="gamertag-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, gamerTag: v }))
             }
@@ -58,8 +58,8 @@ function SignUpPage() {
             required
           />
           <InputWithLabel
-            label={"Password"}
-            name={"password-input"}
+            label="Password"
+            name="password-input"
             onChange={(v) =>
               setFieldsValue((prevState) => ({ ...prevState, password: v }))
             }
