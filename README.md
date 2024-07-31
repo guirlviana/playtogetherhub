@@ -82,6 +82,20 @@ And final start the api
  ```
 npm run start-dev
  ```
+
+Now let's go to the frontend and install dependencies:
+
+```
+cd frontend && npm install
+```
+
+Furthermore, runs:
+
+```
+npm start
+```
+
+Well done, you are able to see PlayTogether hub running on `http://localhost:3000`
  
  <h2 id="future">🛣️ Roadmap</h2>
  
