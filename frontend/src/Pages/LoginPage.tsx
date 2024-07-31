@@ -7,8 +7,13 @@ import { login } from "../http/Gamer";
 import Error from "../Components/Error";
 import { validateFields } from "../utils/validateFields";
 
+type SignUpFields = {
+  gamerTag: string,
+  password: string
+}
+
 function SignUpPage() {
-  const [fields, setFieldsValue] = useState({
+  const [fields, setFieldsValue] = useState<SignUpFields>({
     gamerTag: "",
     password: "",
   });
