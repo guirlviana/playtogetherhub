@@ -8,9 +8,9 @@ import Error from "../Components/Error";
 import { validateFields } from "../utils/validateFields";
 
 type SignUpFields = {
-  gamerTag: string,
-  password: string
-}
+  gamerTag: string;
+  password: string;
+};
 
 function SignUpPage() {
   const [fields, setFieldsValue] = useState<SignUpFields>({
@@ -20,22 +20,24 @@ function SignUpPage() {
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
+  const logIn = () => {
+    login(fields.gamerTag, fields.password)
+      .then(({ data }) => {
+        localStorage.setItem("token", data.token);
+        const token = localStorage.getItem("token");
+        if (token) {
+          window.location.href = "/match";
+        }
+      })
+      .catch(() => {
+        setError("Login Invalid");
+      });
+  };
+
   const onClickLogIn = () => {
     setLoading(true);
     validateFields(fields)
-      .then(() => {
-        login(fields.gamerTag, fields.password)
-          .then(({ data }) => {
-            localStorage.setItem("token", data.token);
-            const token = localStorage.getItem("token");
-            if (token) {
-              window.location.href = "/match";
-            }
-          })
-          .catch(() => {
-            setError("Login Invalid");
-          });
-      })
+      .then(() => logIn())
       .catch(({ message }) => setError(message))
       .finally(() => setLoading(false));
   };
