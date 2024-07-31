@@ -8,7 +8,7 @@ import { searchGames } from "../http/Games";
 import { createGamer } from "../http/Gamer";
 import { useNavigate } from "react-router-dom";
 import Error from "../Components/Error";
-import { validateFields } from "../utils/validateFields";
+import { validateFields } from "../Utils/validateFields";
 
 type SignUpFields = {
   name: "";
