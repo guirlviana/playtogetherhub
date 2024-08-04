@@ -1,6 +1,7 @@
 import { Gamer } from "@prisma/client";
 import { orm } from "../../prisma/prismaClient";
 import bcrypt from "bcrypt";
+import { GamerUpdateFields, GamerWithGames } from "../types/gamer";
 
 async function create(gamerTag: string, name: string, password: string) {
   const hash = await bcrypt.hash(password, 10);
@@ -21,11 +22,6 @@ async function create(gamerTag: string, name: string, password: string) {
 
   return newGamer;
 }
-
-type GamerUpdateFields = {
-  gamerTag?: string;
-  name?: string;
-};
 
 async function update(
   gamerId: number,
@@ -66,8 +62,7 @@ async function get(
   return gamer;
 }
 
-// TODO: remove this any type
-async function getAll(gamerId: number): Promise<any[]> {
+async function getAll(gamerId: number): Promise<GamerWithGames[]> {
   const gamers = await orm.gamer.findMany({
     where: { id: { not: gamerId } },
     select: {
