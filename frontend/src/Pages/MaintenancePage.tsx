@@ -1,9 +1,8 @@
 import React from "react";
-import Button from "../Components/Button";
 import Title from "../Components/Title";
 import Page from "../Components/Page";
 
-function Maintenance() {
+function MaintenancePage() {
   return (
     <Page>
       <div className="flex justify-center h-screen flex-col gap-7">
@@ -16,4 +15,4 @@ function Maintenance() {
   );
 }
 
-export default Maintenance;
+export default MaintenancePage;

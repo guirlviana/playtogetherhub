@@ -5,8 +5,6 @@ import { editGamer, getGamer } from "../http/Gamer";
 import { createOrUpdateGames, getGamerList, searchGames } from "../http/Games";
 import ModalEditGamer from "../Components/ModalEditGamer";
 
-type Props = {};
-
 type Game = {
   externalCode: number;
 };
@@ -15,7 +13,7 @@ type Fields = { name: string; gamerTag: string };
 
 const EMPTY_FIELD_VALUE = "";
 
-function ProfilePage(props: Props) {
+function ProfilePage() {
   const [editGamerModalIsOpen, setEditgamerModalIsOpen] =
     useState<boolean>(false);
   const [gamerList, setGamerlist] = useState<Game[]>([]);
