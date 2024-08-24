@@ -5,7 +5,7 @@ import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
 import { login } from "../http/Gamer";
 import Error from "../Components/Error";
-import { validateFields } from "../Utils/validateFields";
+import { validateFields } from "../Utils/validation";
 
 type SignUpFields = {
   gamerTag: string;

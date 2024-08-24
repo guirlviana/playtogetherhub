@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputWithLabel from "../Components/InputWIthLabel";
 import Button from "../Components/Button";
-import { validateFields } from "../Utils/validateFields";
+import { validateFields } from "../Utils/validation";
 import Error from "./Error";
 
 type EditableFields = { name: string; gamerTag: string };
