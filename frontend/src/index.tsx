@@ -9,7 +9,7 @@ import MatchGamersPage from "./Pages/MatchGamersPage";
 import ProfilePage from "./Pages/ProfilePage";
 import HomePage from "./Pages/Home";
 import MaintenancePage from "./Pages/MaintenancePage";
-import { isOnMaintenanceTime } from "./Utils/maintenanceTime";
+import { isOnMaintenanceTime } from "./Utils/onMaintenanceTime";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
